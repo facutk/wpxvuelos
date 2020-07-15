@@ -1,2 +1,2 @@
-web: vendor/bin/heroku-php-apache2 web/
-local: php -t web -S localhost:8080
+web: vendor/bin/heroku-php-apache2 wp/
+local: php -t wp -S localhost:8080
