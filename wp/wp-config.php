@@ -18,6 +18,17 @@
  * @package WordPress
  */
 
+
+
+if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1') { 
+	define('WP_HOME','http://localhost:8080/');
+	define('WP_SITEURL','http://localhost:8080/');
+} else {
+	define('WP_HOME','https://wpxvuelos.herokuapp.com/');
+	define('WP_SITEURL','https://wpxvuelos.herokuapp.com/');
+}
+
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'database_name_here' );
