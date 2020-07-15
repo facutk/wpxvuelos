@@ -7,7 +7,7 @@ This application supports the [Getting Started with PHP on Heroku](https://devce
 ## Local Running
 
 ```sh
-heroku local local
+php -t wp -S localhost:8080
 ```
 
 ## Deploying
