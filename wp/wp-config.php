@@ -28,6 +28,7 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1') 
 	define('WP_SITEURL','https://wpxvuelos.herokuapp.com/');
 }
 
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
