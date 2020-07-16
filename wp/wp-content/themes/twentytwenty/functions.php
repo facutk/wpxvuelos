@@ -755,22 +755,22 @@ function twentytwenty_get_elements_array() {
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
 
-// add_action('init', function(){
-// 	add_rewrite_rule( 
-// 		 '^vuelos/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?', 
-// 		 //!IMPORTANT! THIS MUST BE IN SINGLE QUOTES!:
-// 		 'index.php?pagename=vuelos&origin=$matches[1]&destination=$matches[2]&outboundDate=$matches[3]&inboundDate=$matches[4]', 
-// 		 'top'
-// 	);   
-// });
+add_action('init', function(){
+	add_rewrite_rule( 
+		 '^vuelos/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?', 
+		 //!IMPORTANT! THIS MUST BE IN SINGLE QUOTES!:
+		 'index.php?pagename=vuelos&origin=$matches[1]&destination=$matches[2]&outboundDate=$matches[3]&inboundDate=$matches[4]', 
+		 'top'
+	);   
+});
 
-// add_filter('query_vars', function( $vars ){
-// 	$vars[] = 'pagename';
-// 	$vars[] = 'origin';
-// 	$vars[] = 'destination';
-// 	$vars[] = 'outboundDate';
-// 	$vars[] = 'inboundDate';
-// 	return $vars;
-// });
+add_filter('query_vars', function( $vars ){
+	$vars[] = 'pagename';
+	$vars[] = 'origin';
+	$vars[] = 'destination';
+	$vars[] = 'outboundDate';
+	$vars[] = 'inboundDate';
+	return $vars;
+});
 
-// flush_rewrite_rules();
+flush_rewrite_rules();
