@@ -773,4 +773,4 @@ add_filter('query_vars', function( $vars ){
 	return $vars;
 });
 
-flush_rewrite_rules();
+// flush_rewrite_rules();
