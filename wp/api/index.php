@@ -53,7 +53,11 @@
 
     $url = "$skyscanner_url/autosuggest/v1.0/$country/$currency/$locale?query=$query&apiKey=$skyscanner_api_key";
     $get_data = callAPI('GET', $url, false);
-    echo $get_data;
+    $response = json_decode($get_data, true);
+
+    header('Content-type: application/json');
+    echo json_encode($response["Places"]);
+   //  echo $response.Places;
     // $response = json_decode($get_data, true);
   
 // $data = $response['response']['data'][0];
