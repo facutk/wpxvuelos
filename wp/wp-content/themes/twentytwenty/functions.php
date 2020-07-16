@@ -774,3 +774,8 @@ add_filter('query_vars', function( $vars ){
 });
 
 flush_rewrite_rules();
+
+if ($_SERVER['REMOTE_ADDR'] != '127.0.0.1' ) { 
+	update_option( 'siteurl', 'https://wp.xvuelos.com/' );
+	update_option( 'home', 'https://wp.xvuelos.com/' );
+}

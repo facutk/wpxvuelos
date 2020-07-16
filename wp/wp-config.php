@@ -24,7 +24,6 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1') 
 } else {
 	define('WP_HOME','https://wp.xvuelos.com/');
 	define('WP_SITEURL','https://wp.xvuelos.com/');
-	define('RELOCATE', true);
 }
 
 if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';
