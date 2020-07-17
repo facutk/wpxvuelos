@@ -118,7 +118,9 @@
 
     $data = curl_exec($ch);
     curl_close($ch);
-    print_r($headers);
+    // print_r($headers["location"][0]);
+    $location = $headers["location"][0];
+    echo $location;
     // var_dump($data);
     // $init_session_response = callAPI('POST', $url, $data);
 
