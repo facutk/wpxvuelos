@@ -149,6 +149,36 @@
  
 //    return res.status(200).json(responseJson);
 //  });
-  
+
+  Route::add('/vuelos', function() {
+    $strJsonFileContents = file_get_contents("mockSession.json");
+    $jsonResponse = json_decode($strJsonFileContents, true);
+    $sid = md5(strval(rand()));
+
+    $itineraries = $jsonResponse["Itineraries"];
+
+    echo '
+      <form autocomplete="false" action="" method="post">
+        <input type="text" name="from" />
+        <input type="submit" value="buscar" />
+        <pre>'. count($jsonResponse["Itineraries"]) .'</pre>
+        <textarea>'. $strJsonFileContents .'</textarea>
+      </form>
+    ';
+    $sid = md5(strval(rand()));
+    echo '<input type="hidden" name="sid" value="' . $sid . '" />';
+
+    // Works if session cookie was accepted
+    echo '<br /><a href="">page 2</a>';
+
+    // Or maybe pass along the session id, if needed
+    echo '<br /><a href="?' . SID . '">page 2</a>';
+  });
+
+  Route::add('/vuelos', function() {
+
+    echo "posted";
+  }, 'post');
+
   Route::run('/api');
 ?>

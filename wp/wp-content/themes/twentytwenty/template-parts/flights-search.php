@@ -6,33 +6,40 @@
  * @subpackage Twenty_Twenty
  * @since Twenty Twenty 1.0
  */
+
+  $origin = get_query_var('origin');
+  $destination = get_query_var('destination');
+  $outboundDate = get_query_var('outboundDate');
+  $inboundDate = get_query_var('inboundDate');
+
+  // $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 ?>
 
-<section class="section-inner">
+<div>
   <form autocomplete="off" role="search" class="search-form" id="flights-search-form">
     <label for="flights-search-origin" class="autocomplete">
       <span class="screen-reader-text">Origen</span>
-      <input type="search" id="flights-search-origin" class="search-field" placeholder="Origen" value="" name="origin">
+      <input type="search" id="flights-search-origin" class="search-field" placeholder="Origen" value="<?php echo $origin ?>" name="origin">
     </label>
 
     <label for="flights-search-destination" class="autocomplete">
       <span class="screen-reader-text">Destino</span>
-      <input type="search" id="flights-search-destination" class="search-field" placeholder="Destino" value="" name="destination">
+      <input type="search" id="flights-search-destination" class="search-field" placeholder="Destino" value="<?php echo $destination ?>" name="destination">
     </label>
 
     <label for="flights-search-departure-date">
       <span class="screen-reader-text">Salida</span>
-      <input type="date" id="flights-search-departure-date" class="search-field" placeholder="Salida" value="" name="departure" min="2020-07-16">
+      <input type="date" id="flights-search-departure-date" class="search-field" placeholder="Salida" value="<?php echo $outboundDate ?>" name="outboundDate" min="2020-07-16">
     </label>
 
     <label for="flights-search-return-date">
       <span class="screen-reader-text">Regreso</span>
-      <input type="date" id="flights-search-return-date" class="search-field" placeholder="Regreso" value="" name="return">
+      <input type="date" id="flights-search-return-date" class="search-field" placeholder="Regreso" value="<?php echo $inboundDate ?>" name="inboundDate">
     </label>
 
     <input type="submit" class="search-submit" value="Buscar">
   </form>
-</section>
+</div>
 
 <style>
 
