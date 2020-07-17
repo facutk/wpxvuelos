@@ -1,9 +1,5 @@
 {
   "require" : {
-    "silex/silex": "^2.0.4",
-    "monolog/monolog": "^1.22",
-    "twig/twig": "^2.0",
-    "symfony/twig-bridge": "^3",
     "ext-pdo_sqlite": "^7.1"
   },
   "require-dev": {
