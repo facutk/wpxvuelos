@@ -57,12 +57,96 @@
 
     header('Content-type: application/json');
     echo json_encode($response["Places"]);
-   //  echo $response.Places;
-    // $response = json_decode($get_data, true);
-  
-// $data = $response['response']['data'][0];
-    // echo $url;
   });
+
+  Route::add('/session/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)/(.*)', function($country, $currency, $locale, $originPlace, $destinationPlace, $outboundDate, $inboundDate) {
+    $adults = '1';
+    $children = '0';
+    $infants = '0';
+    $cabinClass = 'economy';
+    $locationSchema = 'iata';
+    $groupPricing = 'false';
+    $skyscanner_url = $_ENV["SKYSCANNER_URL"];
+    $skyscanner_api_key = $_ENV["SKYSCANNER_API_KEY"];
+
+    $url = "$skyscanner_url/pricing/v1.0";
+
+    $data = [
+      'country' => $country,
+      'currency' => $currency,
+      'locale' => $locale,
+      'adults' => $adults,
+      'children' => $children,
+      'infants' => $infants,
+      'locationSchema' => $locationSchema,
+      'originPlace' => $originPlace,
+      'cabinClass' => $cabinClass,
+      'destinationPlace' => $destinationPlace,
+      'outboundDate' => $outboundDate,
+      'inboundDate' => $inboundDate,
+      'groupPricing' => $groupPricing,
+      'apikey' => $skyscanner_api_key
+    ];
+
+    $ch = curl_init();
+    $http_header = ["Content_type : application/json"];
+    $options = [
+      CURLOPT_URL => $url,
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_POST => 1,
+      CURLOPT_POSTFIELDS => $data,
+      CURLOPT_HTTPHEADER => $http_header
+    ];
+    curl_setopt_array($ch, $options);
+    // $response = curl_exec($ch);
+    
+
+    // this function is called by curl for each header received
+    curl_setopt($ch, CURLOPT_HEADERFUNCTION,
+      function($curl, $header) use (&$headers) {
+        $len = strlen($header);
+        $header = explode(':', $header, 2);
+        if (count($header) < 2) // ignore invalid headers
+          return $len;
+
+        $headers[strtolower(trim($header[0]))][] = trim($header[1]);
+
+        return $len;
+      }
+    );
+
+    $data = curl_exec($ch);
+    curl_close($ch);
+    print_r($headers);
+    // var_dump($data);
+    // $init_session_response = callAPI('POST', $url, $data);
+
+    // echo $init_session_response;
+    //  const r = await fetch(`${SKYSCANNER_URL}/pricing/v1.0`, {
+    //    method: 'POST',
+    //    headers: {
+    //      'Content-Type': 'application/x-www-form-urlencoded'
+    //    },
+    //    body: qs.stringify(params)
+    //  });
+
+    //  const location = r.headers.get('location');
+    //  const pollingUrl = `${location}/?apiKey=${SKYSCANNER_API_KEY}&pageIndex=0&pageSize=1"`;
+    //  const rPolling = await fetch(pollingUrl);
+    //  const responseJson = await rPolling.json();
+      
+    //  return res.status(200).json(responseJson);
+ });
+ 
+//  app.get('/poll', async (req, res) => {
+//    const { sessionKey } = req.query;
+   
+//    const r = await fetch(`${SKYSCANNER_URL}/pricing/uk1/v1.0/${sessionKey}?apiKey=${SKYSCANNER_API_KEY}`);
+//    const responseJson = await r.json();
+ 
+//    return res.status(200).json(responseJson);
+//  });
   
   Route::run('/api');
 ?>
