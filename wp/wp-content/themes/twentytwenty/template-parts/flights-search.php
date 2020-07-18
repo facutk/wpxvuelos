@@ -12,6 +12,14 @@
   $outboundDate = get_query_var('outboundDate');
   $inboundDate = get_query_var('inboundDate');
 
+  $today = date("Y-m-d");
+  if (strlen($outboundDate) == 0) {
+    $outboundDate = $today;
+  }
+  if (strlen($inboundDate) == 0) {
+    $inboundDate = $today;
+  }
+
   // $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 ?>
 
@@ -29,12 +37,12 @@
 
     <label for="flights-search-departure-date">
       <span class="screen-reader-text">Salida</span>
-      <input type="date" id="flights-search-departure-date" class="search-field" placeholder="Salida" value="<?php echo $outboundDate ?>" name="outboundDate" min="2020-07-16">
+      <input type="date" id="flights-search-departure-date" class="search-field" placeholder="Salida" value="<?php echo $outboundDate ?>" name="outboundDate" min="<?php echo $today ?>">
     </label>
 
     <label for="flights-search-return-date">
       <span class="screen-reader-text">Regreso</span>
-      <input type="date" id="flights-search-return-date" class="search-field" placeholder="Regreso" value="<?php echo $inboundDate ?>" name="inboundDate">
+      <input type="date" id="flights-search-return-date" class="search-field" placeholder="Regreso" value="<?php echo $inboundDate ?>" name="inboundDate" min="<?php echo $today ?>">
     </label>
 
     <input type="submit" class="search-submit" value="Buscar">
