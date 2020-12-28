@@ -1,0 +1,20 @@
+/*
+ Theme Name:   xvuelos twentytwenty Child Theme
+ Theme URI:    https://www.xvuelos.com/
+ Description:  xvuelos theme
+ Author:       facutk
+ Author URI:   https://facu.tk
+ Template:     twentytwenty
+ Version:      1.0.0
+*/
+ 
+@import url("../twentytwenty/style.css");
+
+.stop-indicator {
+  width: 5px;
+  height: 5px;
+  border: 1px solid #000;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: -3px;
+}

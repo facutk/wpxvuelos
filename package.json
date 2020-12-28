@@ -1,0 +1,19 @@
+{
+  "name": "wpxvuelos",
+  "version": "1.0.0",
+  "description": "A barebones PHP app that makes use of the [Silex](http://silex.sensiolabs.org/) web framework, which can easily be deployed to Heroku.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx concurrently \"npx livereload .\" \"php -t wp -S localhost:8080\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facutk/wpxvuelos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/facutk/wpxvuelos/issues"
+  },
+  "homepage": "https://github.com/facutk/wpxvuelos#readme"
+}
