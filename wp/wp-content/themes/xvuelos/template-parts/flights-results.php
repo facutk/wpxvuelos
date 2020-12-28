@@ -42,35 +42,13 @@ function imageUrlToFaviconUrl($imageUrl) {
 <?php
   if ($formComplete) {
 ?>
-  <h3>resultados</h3>
 
-  <div class="row">
-    <div class="col-md-3">
-      origin <?php echo $origin; ?>
-    </div>
-    <div class="col-md-3">
-      destination <?php echo $destination; ?>
-    </div>
-    <div class="col-md-3">
-      outboundDate <?php echo $outboundDate; ?>
-    </div>
-    <div class="col-md-3">
-      inboundDate <?php echo $inboundDate; ?>
-    </div>
-  </div>
 
-  <div class="row">
+<div class="row">
   <div class="col-md-3 mb-4">
-    <h3>
-      Filters
-    </h3>
-    <pre>
-      []
-    </pre>
-
-    <h3>
-      Selected Filters
-    </h3>
+    <h5>
+      Filtros
+    </h5>
     <pre>
       []
     </pre>
@@ -78,7 +56,7 @@ function imageUrlToFaviconUrl($imageUrl) {
 
   <!-- Itineraries -->
   <div class="col-md-7">
-    <h3>Results</h3>
+    <h5>Resultados</h5>
 
     <? get_template_part( 'template-parts/flights-sortby' ); ?>
 
@@ -232,8 +210,8 @@ function imageUrlToFaviconUrl($imageUrl) {
     <? get_template_part( 'template-parts/flights-pagination' ); ?>
   </div>
 
-  <div class="col-md-2 d-sm-none d-md-block mb-4">
-    <h3>...</h3>
+  <div class="col-md-2 mb-4 d-none d-md-block">
+    <h5>...</h5>
     <img src="https://place-hold.it/160x600" class="img-fluid" alt="Responsive image">
   </div>
 </div>
