@@ -16,7 +16,8 @@
 
 <?php get_template_part( 'template-parts/flights-results' ); ?>
 
+</div>
+
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
 
 <?php get_footer(); ?>
-</div>
