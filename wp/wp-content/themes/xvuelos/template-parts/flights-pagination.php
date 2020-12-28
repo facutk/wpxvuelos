@@ -17,7 +17,7 @@
   $noMoreResults = (($page + 1) * $PAGE_SIZE) >= $total;
 ?>
 
-<nav aria-label="...">
+<!-- <nav aria-label="...">
   <ul class="pagination my-3">
     <li class="page-item <? echo $page === 0 ? "disabled" : '' ?>">
       <a
@@ -39,4 +39,6 @@
       </a>
     </li>
   </ul>
-</nav>
+</nav> -->
+
+<input type="submit" class="search-submit w-100" value="Mas Resultados">

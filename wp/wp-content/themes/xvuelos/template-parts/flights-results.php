@@ -218,9 +218,7 @@ function imageUrlToFaviconUrl($imageUrl) {
             </div>
             <div class="col-lg-3">
               <? echo $price; ?>
-              <a href="#" class="btn btn-primary">
-                Ver Oferta
-              </a>
+              <input type="submit" class="search-submit" value="Ver">
             </div>
           </div>
           
@@ -230,7 +228,7 @@ function imageUrlToFaviconUrl($imageUrl) {
     <?
       }
     ?>
-
+    
     <? get_template_part( 'template-parts/flights-pagination' ); ?>
   </div>
 
