@@ -230,6 +230,7 @@ if ( ! CUSTOM_TAGS ) {
 			'border'   => true,
 			'height'   => true,
 			'hspace'   => true,
+			'loading'  => true,
 			'longdesc' => true,
 			'vspace'   => true,
 			'src'      => true,
@@ -1033,6 +1034,7 @@ function wp_kses_uri_attributes() {
  *                                                or a context name such as 'post'.
  * @global string[]       $pass_allowed_protocols Array of allowed URL protocols.
  *
+ * @param array $matches preg_replace regexp matches
  * @return string
  */
 function _wp_kses_split_callback( $match ) {
@@ -1711,6 +1713,7 @@ function wp_kses_html_error( $string ) {
  *
  * @param string   $string            Content to check for bad protocols.
  * @param string[] $allowed_protocols Array of allowed URL protocols.
+ * @param int      $count             Depth of call recursion to this function.
  * @return string Sanitized content.
  */
 function wp_kses_bad_protocol_once( $string, $allowed_protocols, $count = 1 ) {
@@ -1774,7 +1777,7 @@ function wp_kses_bad_protocol_once2( $string, $allowed_protocols ) {
  * Converts and fixes HTML entities.
  *
  * This function normalizes HTML entities. It will convert `AT&T` to the correct
- * `AT&amp;T`, `&#00058;` to `&#58;`, `&#XYZZY;` to `&amp;#XYZZY;` and so on.
+ * `AT&amp;T`, `&#00058;` to `&#058;`, `&#XYZZY;` to `&amp;#XYZZY;` and so on.
  *
  * When `$context` is set to 'xml', HTML entities are converted to their code points.  For
  * example, `AT&T&hellip;&#XYZZY;` is converted to `AT&amp;T…&amp;#XYZZY;`.

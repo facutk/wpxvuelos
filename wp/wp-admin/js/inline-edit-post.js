@@ -329,6 +329,11 @@ window.wp = window.wp || {};
 				textarea = $('textarea.tax_input_' + taxname, editRow),
 				comma = wp.i18n._x( ',', 'tag delimiter' ).trim();
 
+			// Ensure the textarea exists.
+			if ( ! textarea.length ) {
+				return;
+			}
+
 			terms.find( 'img' ).replaceWith( function() { return this.alt; } );
 			terms = terms.text();
 
@@ -389,7 +394,7 @@ window.wp = window.wp || {};
 	 *
 	 * @since 2.7.0
 	 *
-	 * @param {int} id The ID for the post that has been changed.
+	 * @param {number} id The ID for the post that has been changed.
 	 * @return {boolean} False, so the form does not submit when pressing
 	 *                   Enter on a focused field.
 	 */
@@ -420,7 +425,6 @@ window.wp = window.wp || {};
 					$error = $errorNotice.find( '.error' );
 
 				$( 'table.widefat .spinner' ).removeClass( 'is-active' );
-				$( '.ac_results' ).hide();
 
 				if (r) {
 					if ( -1 !== r.indexOf( '<tr' ) ) {
@@ -466,7 +470,6 @@ window.wp = window.wp || {};
 
 		if ( id ) {
 			$( '.spinner', $tableWideFat ).removeClass( 'is-active' );
-			$( '.ac_results' ).hide();
 
 			if ( 'bulk-edit' === id ) {
 

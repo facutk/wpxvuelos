@@ -798,6 +798,9 @@ $_old_files = array(
 	'wp-admin/css/ie.min.css',
 	'wp-admin/css/ie-rtl.css',
 	'wp-admin/css/ie-rtl.min.css',
+	// 5.6
+	'wp-includes/js/jquery/ui/position.min.js',
+	'wp-includes/js/jquery/ui/widget.min.js',
 );
 
 /**
@@ -835,6 +838,7 @@ $_new_bundled_files = array(
 	'themes/twentyseventeen/' => '4.7',
 	'themes/twentynineteen/'  => '5.0',
 	'themes/twentytwenty/'    => '5.3',
+	'themes/twentytwentyone/' => '5.6',
 );
 
 /**
@@ -1429,7 +1433,7 @@ function _redirect_to_about_wordpress( $new_version ) {
 	load_default_textdomain();
 
 	// See do_core_upgrade().
-	show_message( __( 'WordPress updated successfully' ) );
+	show_message( __( 'WordPress updated successfully.' ) );
 
 	// self_admin_url() won't exist when upgrading from <= 3.0, so relative URLs are intentional.
 	show_message(

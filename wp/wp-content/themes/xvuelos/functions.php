@@ -17,18 +17,19 @@ add_filter('query_vars', function( $vars ){
   return $vars;
 });
 
-function bootstrap_css() {
-  wp_enqueue_style( 'bootstrap_css', 
-    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', 
-    array(), 
-    '4.1.3'
-  ); 
-}
-add_action( 'wp_enqueue_scripts', 'bootstrap_css');
+// function bootstrap_css() {
+//   wp_enqueue_style( 'bootstrap_css', 
+//     'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', 
+//     array(),
+//     '4.1.3'
+//   ); 
+// }
+// add_action( 'wp_enqueue_scripts', 'bootstrap_css');
 
 /* Adds scripts */
 function add_scripts() {
-  wp_enqueue_script('dayjs', get_theme_file_uri( '/assets/js/dayjs.min.js'));
+  wp_enqueue_style('bootstrap_css', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css'));
+  wp_enqueue_script('dayjs', get_theme_file_uri( '/assets/dayjs/dayjs.min.js'));
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 

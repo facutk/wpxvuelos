@@ -30,6 +30,46 @@
 	overflow: visible;
 }
 
+/* inner 2 column liquid layout */
+
+.inner-sidebar {
+	float: left;
+	clear: left;
+	display: none;
+	width: 281px;
+	position: relative;
+}
+
+.columns-2 .inner-sidebar {
+	margin-left: auto;
+	width: 286px;
+	display: block;
+}
+
+.inner-sidebar #side-sortables,
+.columns-2 .inner-sidebar #side-sortables {
+	min-height: 300px;
+	width: 280px;
+	padding: 0;
+}
+
+.has-right-sidebar .inner-sidebar {
+	display: block;
+}
+
+.has-right-sidebar #post-body {
+	float: right;
+	clear: right;
+	width: 100%;
+	margin-left: -2000px;
+}
+
+.has-right-sidebar #post-body-content {
+	margin-left: 300px;
+	float: none;
+	width: auto;
+}
+
 /* 2 columns main area */
 
 #col-left {
@@ -305,7 +345,7 @@ h3 {
 }
 
 .update-core-php h2 {
-	margin-top: 2em;
+	margin-top: 4em;
 }
 
 .update-php h2,
@@ -752,7 +792,7 @@ img.emoji {
 	content: "\f153";
 	display: block;
 	font: normal 16px/20px dashicons;
-	speak: none;
+	speak: never;
 	height: 20px;
 	text-align: center;
 	width: 20px;
@@ -1561,6 +1601,19 @@ form.upgrade .hint {
 	margin: -4px 0;
 }
 
+h2.wp-current-version {
+	margin-bottom: .3em;
+}
+
+p.update-last-checked {
+	margin-top: 0;
+}
+
+p.auto-update-status {
+	margin-top: 2em;
+	line-height: 1.8;
+}
+
 #ajax-loading,
 .ajax-loading,
 .ajax-feedback,
@@ -1599,7 +1652,7 @@ form.upgrade .hint {
 	.button.installing:before,
 	.button.installed:before,
 	.update-message p:before {
-		speak: none;
+		speak: never;
 	}
 }
 
@@ -1690,7 +1743,7 @@ form.upgrade .hint {
 	left: 0;
 	content: "\f140";
 	font: normal 20px/1 dashicons;
-	speak: none;
+	speak: never;
 	display: inline-block;
 	padding: 0 0 0 5px;
 	bottom: 2px;
@@ -1894,6 +1947,7 @@ form.upgrade .hint {
 html.wp-toolbar {
 	padding-top: 32px;
 	box-sizing: border-box;
+	-ms-overflow-style: scrollbar; /* See ticket #48545 */
 }
 
 .widefat th,
@@ -1946,9 +2000,9 @@ html.wp-toolbar {
 	padding-top: 10px;
 }
 
-.metabox-holder .postbox-container .empty-container {
-	outline: 3px dashed #b4b9be;
-	height: 250px;
+.metabox-holder .postbox-container .meta-box-sortables {
+	/* The jQuery UI Sortables need some initial height to work properly. */
+	min-height: 1px;
 	position: relative;
 }
 
@@ -2090,7 +2144,7 @@ html.wp-toolbar {
 
 .postbox .inside > p:last-child,
 .rss-widget ul li:last-child {
-	margin-bottom: 1px;
+	margin-bottom: 1px !important;
 }
 
 .postbox.closed h3 {
@@ -2638,7 +2692,7 @@ div.action-links {
 	margin-top: 10px;
 	margin-left: 250px; /* FYI box */
 	padding: 10px 26px;
-	margin-bottom: -99939px; /* 60px less than the padding below to accommodate footer */
+	margin-bottom: -99932px; /* 67px less than the padding below to accommodate footer height */
 	padding-bottom: 99999px; /* equal height column trick */
 }
 
@@ -2656,7 +2710,7 @@ div.action-links {
 	top: 0;
 	left: 0;
 	padding: 16px;
-	margin-bottom: -99939px; /* 60px less than the padding below to accommodate footer */
+	margin-bottom: -99932px; /* 67px less than the padding below to accommodate footer height */
 	padding-bottom: 99999px; /* equal height column trick */
 	width: 217px;
 	border-right: 1px solid #ddd;
@@ -2750,7 +2804,7 @@ div.action-links {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	height: 33px; /* 33+13+13+1=60 */
+	height: 40px; /* actual height: 40+13+13+1=67 */
 	border-top: 1px solid #ddd;
 	background: #f3f3f3;
 }
@@ -2975,7 +3029,7 @@ div.action-links {
 .plugin-details-modal #TB_closeWindowButton:after {
 	content: "\f335";
 	font: normal 32px/29px 'dashicons';
-	speak: none;
+	speak: never;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -3003,7 +3057,7 @@ img {
 	content: "\f142";
 	display: inline-block;
 	font: normal 20px/1 dashicons;
-	speak: none;
+	speak: never;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-decoration: none;
@@ -3356,7 +3410,7 @@ img {
 .accordion-section-title:after {
 	content: "\f140";
 	font: normal 20px/1 dashicons;
-	speak: none;
+	speak: never;
 	display: block;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

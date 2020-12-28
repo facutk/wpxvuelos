@@ -121,7 +121,7 @@ function insert_with_markers( $filename, $marker, $insertion ) {
 		if ( $perms ) {
 			chmod( $filename, $perms | 0644 );
 		}
-	} elseif ( ! is_writeable( $filename ) ) {
+	} elseif ( ! is_writable( $filename ) ) {
 		return false;
 	}
 
@@ -903,7 +903,7 @@ function iis7_add_rewrite_rule( $filename, $rewrite_rule ) {
  * @since 2.8.0
  *
  * @param DOMDocument $doc
- * @param string $filename
+ * @param string      $filename
  */
 function saveDomDocument( $doc, $filename ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	$config = $doc->saveXML();
@@ -1190,7 +1190,7 @@ function wp_refresh_post_nonces( $response, $data, $screen_id ) {
  *
  * @since 5.0.0
  *
- * @param array  $response  The Heartbeat response.
+ * @param array $response The Heartbeat response.
  * @return array The Heartbeat response.
  */
 function wp_refresh_heartbeat_nonces( $response ) {
@@ -1246,7 +1246,7 @@ function heartbeat_autosave( $response, $data ) {
 				'message' => __( 'Error while saving.' ),
 			);
 		} else {
-			/* translators: Draft saved date format, see https://www.php.net/date */
+			/* translators: Draft saved date format, see https://www.php.net/manual/datetime.format.php */
 			$draft_saved_date_format = __( 'g:i:s a' );
 			$response['wp_autosave'] = array(
 				'success' => true,

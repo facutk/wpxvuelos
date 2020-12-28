@@ -41,8 +41,8 @@ class WP_Media_List_Table extends WP_List_Table {
 		$this->detached = ( isset( $_REQUEST['attachment-filter'] ) && 'detached' === $_REQUEST['attachment-filter'] );
 
 		$this->modes = array(
-			'list' => __( 'List View' ),
-			'grid' => __( 'Grid View' ),
+			'list' => __( 'List view' ),
+			'grid' => __( 'Grid view' ),
 		);
 
 		parent::__construct(
@@ -174,7 +174,7 @@ class WP_Media_List_Table extends WP_List_Table {
 				$actions['untrash'] = __( 'Restore' );
 				$actions['delete']  = __( 'Delete permanently' );
 			} else {
-				$actions['trash'] = __( 'Move to trash' );
+				$actions['trash'] = __( 'Move to Trash' );
 			}
 		} else {
 			$actions['delete'] = __( 'Delete permanently' );
@@ -614,7 +614,7 @@ class WP_Media_List_Table extends WP_List_Table {
 					);
 				}
 				/* translators: Used between list items, there is a space after the comma. */
-				echo join( __( ', ' ), $out );
+				echo implode( __( ', ' ), $out );
 			} else {
 				echo '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">' . get_taxonomy( $taxonomy )->labels->no_terms . '</span>';
 			}
@@ -802,9 +802,9 @@ class WP_Media_List_Table extends WP_List_Table {
 	 *
 	 * @since 4.3.0
 	 *
-	 * @param object $post        Attachment being acted upon.
-	 * @param string $column_name Current column name.
-	 * @param string $primary     Primary column name.
+	 * @param WP_Post $post        Attachment being acted upon.
+	 * @param string  $column_name Current column name.
+	 * @param string  $primary     Primary column name.
 	 * @return string Row actions output for media attachments, or an empty string
 	 *                if the current column is not the primary column.
 	 */

@@ -842,7 +842,7 @@ function can_edit_network( $network_id ) {
 function _thickbox_path_admin_subfolder() {
 	?>
 <script type="text/javascript">
-var tb_pathToImage = "<?php echo includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ); ?>";
+var tb_pathToImage = "<?php echo esc_js( includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ) ); ?>";
 </script>
 	<?php
 }
@@ -1018,7 +1018,7 @@ jQuery(document).ready( function($) {
  *
  * @since 4.6.0
  *
- * @param $args {
+ * @param array $args {
  *     Optional. Array or string of Query parameters. Default empty array.
  *
  *     @type int    $blog_id  The site ID. Default is the current site.
