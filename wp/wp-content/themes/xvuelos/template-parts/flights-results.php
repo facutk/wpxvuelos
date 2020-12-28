@@ -163,7 +163,7 @@ function imageUrlToFaviconUrl($imageUrl) {
                             <div class="mb-2 text-nowrap">
                               <small>
                                 <script>
-                                  document.write(dayjs().minute("<? echo $duration; ?>").format("HH[hs] mm[m]"));
+                                  document.write(dayjs().minute("<? echo $duration; ?>").format("HH[hs] mm[m]").replace(/^0+/, ''));
                                 </script>
                               </small>
                             </div>
