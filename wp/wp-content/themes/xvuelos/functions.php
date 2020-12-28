@@ -26,6 +26,12 @@ function bootstrap_css() {
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_css');
 
+/* Adds scripts */
+function add_scripts() {
+  wp_enqueue_script('dayjs', get_theme_file_uri( '/assets/js/dayjs.min.js'));
+}
+add_action( 'wp_enqueue_scripts', 'add_scripts' );
+
 function xvuelos_get_flights() {
   $mockSession = json_decode(file_get_contents('wp-content/themes/xvuelos/mockSession.json'), true);
 
