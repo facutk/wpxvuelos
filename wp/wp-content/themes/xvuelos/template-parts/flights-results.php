@@ -195,8 +195,16 @@ function imageUrlToFaviconUrl($imageUrl) {
               ?>
             </div>
             <div class="col-lg-3">
-              <? echo $price; ?>
-              <input type="submit" class="search-submit" value="Ver">
+              <div class="row">
+                <div class="col">
+                  <span class="font-weight-bold color-accent">
+                    <small>$</small><? echo number_format($price); ?>
+                  </span>
+                </div>
+                <div class="col">
+                  <input type="submit" class="search-submit" value="Ver">
+                </div>
+              </div>
             </div>
           </div>
           
