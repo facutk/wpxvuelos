@@ -197,12 +197,12 @@ function imageUrlToFaviconUrl($imageUrl) {
             <div class="col-lg-3">
               <div class="row">
                 <div class="col">
-                  <span class="font-weight-bold color-accent">
+                  <input type="submit" class="search-submit w-100 py-3" value="ver">
+                </div>
+                <div class="col text-right align-text-bottom py-2">
+                  <span class="font-weight-bold color-accent text-nowrap">
                     <small>$</small><? echo number_format($price); ?>
                   </span>
-                </div>
-                <div class="col">
-                  <input type="submit" class="search-submit" value="Ver">
                 </div>
               </div>
             </div>
