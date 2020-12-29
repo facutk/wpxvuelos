@@ -19,11 +19,11 @@
   margin-top: -3px;
 }
 
-summary {
+#filter-details summary {
   list-style-image: url(/wp-content/themes/xvuelos/assets/images/filter.svg);
 }
 
-summary::-webkit-details-marker {
+#filter-details summary::-webkit-details-marker {
   background: url(/wp-content/themes/xvuelos/assets/images/filter.svg);
   color: transparent;
 }
