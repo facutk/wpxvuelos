@@ -23,7 +23,7 @@
   // $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 ?>
 
-<div class="mt-5">
+<div class="my-5">
   <form autocomplete="off" role="search" class="search-form" id="flights-search-form">
     <label for="flights-search-origin" class="autocomplete">
       <span class="screen-reader-text">Origen</span>

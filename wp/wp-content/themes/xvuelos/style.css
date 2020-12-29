@@ -18,3 +18,12 @@
   border-radius: 5px;
   margin-top: -3px;
 }
+
+summary {
+  list-style-image: url(/wp-content/themes/xvuelos/assets/images/filter.svg);
+}
+
+summary::-webkit-details-marker {
+  background: url(/wp-content/themes/xvuelos/assets/images/filter.svg);
+  color: transparent;
+}
