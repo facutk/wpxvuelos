@@ -46,12 +46,15 @@ function imageUrlToFaviconUrl($imageUrl) {
 
 <div class="row">
   <div class="col-md-3 mb-4">
-    <h5>
-      Filtros
-    </h5>
-    <pre>
-      []
-    </pre>
+    <details id="filter-details">
+      <summary><h5>Filtros</h5></summary>
+      <div>
+
+        <pre>
+          []
+        </pre>
+      </div>
+    </details>
   </div>
 
   <!-- Itineraries -->
@@ -223,6 +226,20 @@ function imageUrlToFaviconUrl($imageUrl) {
     <img src="https://place-hold.it/160x600" class="img-fluid" alt="Responsive image">
   </div>
 </div>
+
+<script>
+  const mediaQuery = window.matchMedia('(min-width: 768px)')
+
+  function handleTabletChange(e) {
+    if (e.matches) {
+      document.getElementById("filter-details").setAttribute("open", true);
+    }
+  }
+
+  mediaQuery.addListener(handleTabletChange)
+
+  handleTabletChange(mediaQuery);
+</script>
 
 <?php
   }
