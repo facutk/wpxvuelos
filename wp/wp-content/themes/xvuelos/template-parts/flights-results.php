@@ -69,7 +69,7 @@ function imageUrlToFaviconUrl($imageUrl) {
         $price = $Itinerary["PricingOptions"][0]["Price"];
     ?>
 
-      <div class="card my-2">
+      <div class="card my-3">
         <div class="card-body">
           <div class="row">
             <div class="col-lg-9">

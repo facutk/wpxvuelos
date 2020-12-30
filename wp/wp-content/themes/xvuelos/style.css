@@ -27,3 +27,7 @@
   background: url(/wp-content/themes/xvuelos/assets/images/filter.svg);
   color: transparent;
 }
+
+.bg-grey {
+  border-color: #d6d7df
+}
