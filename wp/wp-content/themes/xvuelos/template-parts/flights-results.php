@@ -52,7 +52,7 @@ function imageUrlToFaviconUrl($imageUrl) {
 <div class="row">
   <div class="col-md-3 mb-4">
     <details id="filter-details">
-      <summary>Filtros</summary>
+      <summary></summary>
       <?
         get_template_part(
           'template-parts/flights-filters',
