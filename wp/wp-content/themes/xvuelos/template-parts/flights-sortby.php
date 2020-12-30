@@ -2,7 +2,7 @@
   <span class="text-nowrap mr-2 py-3">Ordenar por</span>
   <select
     name="sortby"
-    class="w-100 p-3 bg-grey"
+    class="w-100 p-3 border-grey"
     style="border-color: #d6d7df"
     form="flights-search-form'"
     onchange="handleSubmit(event)"

@@ -16,6 +16,8 @@ $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outbo
 $mockSession = xvuelos_get_flights();
 
 $Itineraries = $mockSession["Itineraries"];
+$Carriers = $mockSession["Carriers"];
+
 $legs = array_column($mockSession["Legs"], NULL, 'Id');
 $places = array_column($mockSession["Places"], NULL, 'Id');
 $carriers = array_column($mockSession["Carriers"], NULL, 'Id');
@@ -48,11 +50,15 @@ function imageUrlToFaviconUrl($imageUrl) {
   <div class="col-md-3 mb-4">
     <details id="filter-details">
       <summary></summary>
-      <div>
-        <pre>
-          []
-        </pre>
-      </div>
+      <?
+        get_template_part(
+          'template-parts/flights-filters',
+          null,
+          array(
+            'carriers' => $carriers
+          )
+        );
+      ?> 
     </details>
   </div>
 
