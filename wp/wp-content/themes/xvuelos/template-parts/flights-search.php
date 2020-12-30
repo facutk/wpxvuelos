@@ -258,10 +258,12 @@ var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla"
 autocomplete(document.getElementById("flights-search-origin"), 'origin');
 autocomplete(document.getElementById("flights-search-destination"), 'destination');
 
-document.getElementById("flights-search-form").addEventListener("submit", function(e) {
+function handleSubmit(e) {
   e.preventDefault();
   console.log(e);
 
   window.location.href = '/vuelos/EZE/MIA/2020-10-13/2020-10-28';
-});
+};
+
+document.getElementById("flights-search-form").addEventListener("submit", handleSubmit);
 </script>
