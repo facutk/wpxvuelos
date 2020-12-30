@@ -39,15 +39,26 @@ function imageUrlToFaviconUrl($imageUrl) {
   array_splice($parts, sizeof($parts) - 1, 0, "favicon");
   return implode($slash, $parts);
 }
+
+function humanizeDuration($duration) {
+  $dt = new DateTime();
+  $dt->add(new DateInterval('PT' . $duration . 'M'));
+  $interval = $dt->diff(new DateTime());
+  return $interval->format('%Hhs %Im');
+}
+
+
+function getDateDiffInDays($departure, $arrival) {
+  return intval(date_diff(
+    date_create(substr($departure, 0, 10)),
+    date_create(substr($arrival, 0, 10))
+  )->format('%a'));
+}
 ?>
 
 <?php
   if ($formComplete) {
 ?>
-
-<script>
-  dayjs.extend(dayjs_plugin_duration);
-</script>
 
 <div class="row">
   <div class="col-md-3 mb-4">
@@ -93,6 +104,7 @@ function imageUrlToFaviconUrl($imageUrl) {
                   $stops = sizeof($leg["SegmentIds"]) - 1;
                   $carrier = $carriers[$leg["Carriers"][0]];
                   $carrierFavicon = imageUrlToFaviconUrl($carrier["ImageUrl"]);
+                  $dateDiffInDays = getDateDiffInDays($departure, $arrival);
                 ?>
                   <h6 class="card-subtitle mb-2 text-muted">
                     <? echo $directionalityLabels[$directionality]; ?>
@@ -147,9 +159,7 @@ function imageUrlToFaviconUrl($imageUrl) {
                           <div class="col">
                             <div class="mb-2 text-nowrap">
                               <small>
-                                <script>
-                                  document.write(dayjs.duration("<? echo $duration; ?>", "minutes").format("HH[hs] mm[m]").replace(/^0+/, ''));
-                                </script>
+                                <? echo humanizeDuration($duration); ?>
                               </small>
                             </div>
                             <div>
@@ -170,14 +180,16 @@ function imageUrlToFaviconUrl($imageUrl) {
                                 </div>
                               </small>
                             </div>
-
-
+                            
                           </div>
                           <div class="col text-truncate">
                             <div class="text-monospace">
                               <script>
                                 document.write(dayjs("<? echo $arrival; ?>").format("HH:mm"));
                               </script>
+                              <small class="text-muted <? echo $dateDiffInDays === 0 ? 'invisible': '' ;?>">
+                                +<? echo $dateDiffInDays; ?>
+                              </small>
                             </div>
 
                             <div>
