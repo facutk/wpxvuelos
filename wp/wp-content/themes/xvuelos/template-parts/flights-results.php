@@ -45,18 +45,19 @@ function imageUrlToFaviconUrl($imageUrl) {
   if ($formComplete) {
 ?>
 
+<script>
+  dayjs.extend(dayjs_plugin_duration);
+</script>
 
 <div class="row">
   <div class="col-md-3 mb-4">
     <details id="filter-details">
-      <summary></summary>
+      <summary>Filtros</summary>
       <?
         get_template_part(
           'template-parts/flights-filters',
           null,
-          array(
-            'carriers' => $carriers
-          )
+          ['carriers' => $carriers]
         );
       ?> 
     </details>
@@ -147,7 +148,7 @@ function imageUrlToFaviconUrl($imageUrl) {
                             <div class="mb-2 text-nowrap">
                               <small>
                                 <script>
-                                  document.write(dayjs().minute("<? echo $duration; ?>").format("HH[hs] mm[m]").replace(/^0+/, ''));
+                                  document.write(dayjs.duration("<? echo $duration; ?>", "minutes").format("HH[hs] mm[m]").replace(/^0+/, ''));
                                 </script>
                               </small>
                             </div>

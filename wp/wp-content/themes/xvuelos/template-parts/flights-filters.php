@@ -27,7 +27,8 @@
   <fieldset id="carriers" class="border-0 pt-3">
     <legend>Aerolíneas</legend>
     <?
-      $carriers = $args['carriers']; 
+      $carriers = $args['carriers'];
+      array_unshift( $carriers, ["Name" => 'Todas', "Id" => null]);
 
       foreach ($carriers as $carrier) {
         $name = $carrier["Name"];
