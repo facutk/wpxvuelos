@@ -110,9 +110,7 @@ function getDateDiffInDays($departure, $arrival) {
                     <? echo $directionalityLabels[$directionality]; ?>
                     <small>
                       / 
-                      <script>
-                        document.write(dayjs("<? echo $departure; ?>").format("ddd. D MMM. YYYY"));
-                      </script>
+                      <? echo date_create($departure)->format("D. d M. Y"); ?>
                     </small>
                   </h6>
 
@@ -139,9 +137,7 @@ function getDateDiffInDays($departure, $arrival) {
                         <div class="row">
                           <div class="col text-truncate">
                             <div class="text-monospace">
-                              <script>
-                                document.write(dayjs("<? echo $departure; ?>").format("HH:mm"));
-                              </script>
+                              <? echo date_create($departure)->format("h:m"); ?>
                             </div>
 
                             <div>
@@ -169,13 +165,9 @@ function getDateDiffInDays($departure, $arrival) {
                                   <div class="border-bottom border-dark"></div>
 
                                   <div class="d-flex justify-content-around">
-                                    <?
-                                      foreach(range(1, $stops) as $n) {
-                                    ?>
+                                    <? foreach(range(1, $stops) as $n) { ?>
                                       <span class="stop-indicator"></span>
-                                    <?
-                                      }
-                                    ?>
+                                    <? } ?>
                                   </div>
                                 </div>
                               </small>
@@ -184,9 +176,7 @@ function getDateDiffInDays($departure, $arrival) {
                           </div>
                           <div class="col text-truncate">
                             <div class="text-monospace">
-                              <script>
-                                document.write(dayjs("<? echo $arrival; ?>").format("HH:mm"));
-                              </script>
+                              <? echo date_create($departure)->format("h:m"); ?>
                               <small class="text-muted <? echo $dateDiffInDays === 0 ? 'invisible': '' ;?>">
                                 +<? echo $dateDiffInDays; ?>
                               </small>

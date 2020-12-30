@@ -20,7 +20,6 @@ add_filter('query_vars', function( $vars ){
 /* Adds scripts */
 function add_scripts() {
   wp_enqueue_style('bootstrap_css', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css'));
-  wp_enqueue_script('dayjs', get_theme_file_uri( '/assets/dayjs/dayjs.min.js'));
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
