@@ -12,10 +12,17 @@
 <?php get_header(); ?>
 
 <div class="container">
-  
+
 <?php get_template_part( 'template-parts/flights-search' ); ?>
 
-<?php get_template_part( 'template-parts/flights-results' ); ?>
+<?
+  $loading = get_query_var('loading');
+  if ($loading) {
+    get_template_part( 'template-parts/flights-loading' ); 
+  } else {
+    get_template_part( 'template-parts/flights-results' ); 
+  }
+?>
 
 </div>
 

@@ -14,12 +14,14 @@ add_filter('query_vars', function( $vars ){
   $vars[] = 'destination';
   $vars[] = 'outboundDate';
   $vars[] = 'inboundDate';
+  $vars[] = "loading";
   return $vars;
 });
 
 /* Adds scripts */
 function add_scripts() {
   wp_enqueue_style('bootstrap_css', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css'));
+  wp_enqueue_style('skeleton_screen_css', get_theme_file_uri( '/assets/skeleton-screen-css/index.min.css'));
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
