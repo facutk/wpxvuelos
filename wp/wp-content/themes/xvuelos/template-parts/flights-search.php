@@ -47,6 +47,8 @@
 
     <input type="submit" class="search-submit" value="Buscar">
   </form>
+
+  <input id="tags" hidden>
 </div>
 
 <style>
@@ -95,13 +97,6 @@
 </style>
 
 <script>
-
-function handleFlightsSearch (e) {
-  console.log(1);
-  debugger;
-  e.preventDefault();
-  console.log(e);
-}
 
 function debounce(func, wait) {
   let timeout;
