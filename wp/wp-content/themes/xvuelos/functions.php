@@ -47,8 +47,9 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   }
 }
 
-function api_method($data) {
-  $data = [ 'foo' => 'bar' ];
+function api_method(WP_REST_Request $request) {
+  $forwarded  = $request->get_header('x-forwarded-for');
+  $data = [ 'foo' => 'bar', 'ip' => $forwarded ];
 
   $response = new WP_REST_Response($data, 200);
   
