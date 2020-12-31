@@ -46,4 +46,23 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
     wp_enqueue_script('main', get_theme_file_uri('/assets/main.js'), array('jquery-ui-autocomplete', 'jquery'), '1.0.0', true );
   }
 }
+
+function api_method($data) {
+  $data = [ 'foo' => 'bar' ];
+
+  $response = new WP_REST_Response($data, 200);
+  
+  // Set headers.
+  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
+  
+  return $response;
+}
+add_action( 'rest_api_init', function () {
+  register_rest_route('xvuelos/v1', '/hello/', [
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'api_method',
+  ]);
+});
+
+
 flush_rewrite_rules();
