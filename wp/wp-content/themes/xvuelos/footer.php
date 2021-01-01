@@ -46,5 +46,8 @@
 			</footer><!-- #site-footer -->
 
 		<?php wp_footer(); ?>
+		<?
+			echo $_SERVER['x-forwarded-for'];
+		?>
 	</body>
 </html>
