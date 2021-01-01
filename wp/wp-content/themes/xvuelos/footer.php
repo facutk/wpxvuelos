@@ -48,11 +48,17 @@
 		<?php wp_footer(); ?>
     <?
       $request_headers = getallheaders();
-      $forwarded_for = $request_headers['x-forwarded-for'];
+      
       var_dump($request_headers);
     ?>
     <hr />
     <?
+      $forwarded_for = $request_headers['X-Forwarded-For'];
+      var_dump($forwarded_for);
+    ?>
+    <hr />
+    <?
+      $forwarded_for = $_SERVER['X-Forwarded-For'];
       var_dump($forwarded_for);
     ?>
 	</body>
