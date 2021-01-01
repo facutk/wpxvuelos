@@ -46,7 +46,7 @@ function humanizeDuration($duration) {
   $dt = new DateTime();
   $dt->add(new DateInterval('PT' . $duration . 'M'));
   $interval = $dt->diff(new DateTime());
-  return $interval->format('%Hhs %Im');
+  return ltrim($interval->format('%Hhs %Im'), '0');
 }
 
 
