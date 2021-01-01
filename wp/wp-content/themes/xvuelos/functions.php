@@ -176,8 +176,20 @@ function xvuelos_get_place_suggestions($query) {
 
   $body = $get_data['body'];
   $response = json_decode($body, true);
+  
+  $places = array_map(function($place) {
+    $value = explode('-', $place["PlaceId"])[0];
+    $label = $place["PlaceName"];
+    $trait = $place["CountryName"];
 
-  return $response['Places'];
+    return [
+      'value' => $value,
+      'label' => $label,
+      'trait' => $trait,
+    ];
+  }, $response['Places']);
+
+  return $places;
 }
 
 function xvuelos_rest_get_places(WP_REST_Request $request) {

@@ -162,25 +162,25 @@ function autocomplete(inp, direction) {
       /*for each item in the array...*/
       for (i = 0; i < places.length; i++) {
         var place = places[i];
-        var countryId = place.CountryId.split('-')[0]; // AR-sky
-        var countryName = place.CountryName; // Argentina
-        var placeId = place.PlaceId.split('-')[0]; // SLA-sky
-        var placeName = place.PlaceName; // Ciudad de Salta
+
+        var trait = place.trait; // Argentina
+        var value = place.value; // SLA-sky
+        var label = place.label; // Ciudad de Salta
 
         /*check if the item starts with the same letters as the text field value:*/
 
         /*create a DIV element for each matching element:*/
         b = document.createElement("DIV");
         /*make the matching letters bold:*/
-        if (placeName.substr(0, query.length).toUpperCase() == query.toUpperCase()) {
-          b.innerHTML = "<strong>" + placeName.substr(0, query.length) + "</strong>";
-          b.innerHTML += placeName.substr(query.length);
+        if (label.substr(0, query.length).toUpperCase() == query.toUpperCase()) {
+          b.innerHTML = "<strong>" + label.substr(0, query.length) + "</strong>";
+          b.innerHTML += label.substr(query.length);
         } else {
-          b.innerHTML = placeName;
+          b.innerHTML = label;
         }
-        b.innerHTML += ' - ' + '<small>' + countryName + '</small>';
+        b.innerHTML += ' - ' + '<small>' + trait + '</small>';
         /*insert a input field that will hold the current array item's value:*/
-        b.innerHTML += "<input type='hidden' value='" + placeId + "'>";
+        b.innerHTML += "<input type='hidden' value='" + value + "'>";
         /*execute a function when someone clicks on the item value (DIV element):*/
             b.addEventListener("click", function(e) {
             /*insert the value for the autocomplete text field:*/
