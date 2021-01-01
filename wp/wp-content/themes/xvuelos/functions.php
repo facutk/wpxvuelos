@@ -181,9 +181,9 @@ function xvuelos_get_place_suggestions($query) {
 }
 
 function xvuelos_rest_get_places(WP_REST_Request $request) {
-  $query = $request->get_param('query');
+  $term = $request->get_param('term');
 
-  $places = xvuelos_get_place_suggestions($query);
+  $places = xvuelos_get_place_suggestions($term);
 
   $response = new WP_REST_Response($places, 200);
   

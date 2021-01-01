@@ -26,8 +26,21 @@ var availableTags = [
 (function( $ ) {
   "use strict";
   $(document).ready( function() {
+
+
+    // $( "#tags" ).autocomplete({
+    //   source: availableTags
+    // });
+
     $( "#tags" ).autocomplete({
-      source: availableTags
+      source: "/wp-json/xvuelos/v1/places",
+      minLength: 2,
+      select: function( event, ui ) {
+        console.log(ui);
+        // log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+      }
     });
+
+
   });
 })(jQuery);

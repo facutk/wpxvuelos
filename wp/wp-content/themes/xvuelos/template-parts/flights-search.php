@@ -27,28 +27,34 @@
   <form autocomplete="off" role="search" class="search-form" id="flights-search-form">
     <label for="flights-search-origin" class="autocomplete">
       <span class="screen-reader-text">Origen</span>
-      <input type="search" id="flights-search-origin" class="search-field" placeholder="Origen" value="<?php echo $origin ?>" name="origin">
+      <input type="search" id="flights-search-origin" class="search-field" placeholder="Origen" value="<?php echo $origin ?>" name="origin" />
     </label>
 
     <label for="flights-search-destination" class="autocomplete">
       <span class="screen-reader-text">Destino</span>
-      <input type="search" id="flights-search-destination" class="search-field" placeholder="Destino" value="<?php echo $destination ?>" name="destination">
+      <input type="search" id="flights-search-destination" class="search-field" placeholder="Destino" value="<?php echo $destination ?>" name="destination" />
     </label>
 
     <label for="flights-search-departure-date">
       <span class="screen-reader-text">Salida</span>
-      <input type="date" id="flights-search-departure-date" class="search-field" placeholder="Salida" value="<?php echo $outboundDate ?>" name="outboundDate" min="<?php echo $today ?>">
+      <input type="date" id="flights-search-departure-date" class="search-field" placeholder="Salida" value="<?php echo $outboundDate ?>" name="outboundDate" min="<?php echo $today ?>" />
     </label>
 
     <label for="flights-search-return-date">
       <span class="screen-reader-text">Regreso</span>
-      <input type="date" id="flights-search-return-date" class="search-field" placeholder="Regreso" value="<?php echo $inboundDate ?>" name="inboundDate" min="<?php echo $today ?>">
+      <input type="date" id="flights-search-return-date" class="search-field" placeholder="Regreso" value="<?php echo $inboundDate ?>" name="inboundDate" min="<?php echo $today ?>" />
     </label>
 
-    <input type="submit" class="search-submit" value="Buscar">
+    <label for="tags" class="d-none">
+      <span class="screen-reader-text">Tags</span>
+      <input id="tags" type="search" class="search-field" placeholder="tags" />
+    </label>
+    
+
+    <input type="submit" class="search-submit" value="Buscar" />
   </form>
 
-  <input id="tags" hidden>
+  
 </div>
 
 <style>
@@ -188,7 +194,7 @@ function autocomplete(inp, direction) {
       }
     });
 
-    oReq.open("GET", "/wp-json/xvuelos/v1/places?query=" + query);
+    oReq.open("GET", "/wp-json/xvuelos/v1/places?term=" + query);
     oReq.send();
   }, 250);
 
