@@ -1,20 +1,4 @@
 <?php
-function xvuelos_get_markets() {
-  $markets = [
-    'US', 'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'UY'
-  ];
-
-  return $markets;
-}
-
-function xvuelos_get_currencies() {
-  $currencies = [
-    'USD', 'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'UYU'
-  ];
-
-  return $currencies;
-}
-
 add_action('init', function(){
   add_rewrite_rule( 
     '^vuelos/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?', 
@@ -23,19 +7,48 @@ add_action('init', function(){
     'top'
     );
 
+  init_userinfo();
+});
+
+function init_userinfo() {
+  $userinfo_changed = false;
+  
   $userinfo = $_COOKIE["userinfo"];
+  
   if ($userinfo) {
     $userinfo = json_decode(base64_decode($userinfo), true);
     if (!$userinfo) {
-      unset( $_COOKIE["userinfo"]);
+      unset($_COOKIE["userinfo"]);
     }
   } else {
     $userinfo = xvuelos_get_userinfo();
+    $userinfo_changed = true;  
+  }
+
+  if($_POST['market'] || $_POST['currency']) {
+    $userinfo['market'] = $_POST['market'];
+    $userinfo['currency'] = $_POST['currency'];
+    $userinfo_changed = true;
+  };
+
+  if ($userinfo_changed) {
     setcookie("userinfo", base64_encode(json_encode($userinfo)), time()+3600);  
   }
 
   $GLOBALS['userinfo'] = $userinfo;
-});
+}
+
+function xvuelos_get_markets() {
+  return [
+    'US', 'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'UY'
+  ];
+}
+
+function xvuelos_get_currencies() {
+  return [
+    'USD', 'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'UYU'
+  ];
+}
 
 add_filter('query_vars', function( $vars ){
   $vars[] = 'pagename';
