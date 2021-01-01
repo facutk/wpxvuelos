@@ -10,7 +10,7 @@
     <div class="col">
       <select
         name="market"
-        class="border-grey border-0 text-muted"
+        class="border-0 text-muted"
         onchange="this.form.submit()"
       >
         <?
@@ -28,7 +28,7 @@
     <div class="col">
       <select
         name="currency"
-        class="border-grey border-0 text-muted"
+        class="border-0 text-muted"
         onchange="this.form.submit()"
       >
         <?

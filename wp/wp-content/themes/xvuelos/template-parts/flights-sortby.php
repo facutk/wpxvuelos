@@ -3,7 +3,6 @@
   <select
     name="sortby"
     class="w-100 p-3 border-grey"
-    style="border-color: #d6d7df"
     form="flights-search-form'"
     onchange="handleSubmit(event)"
   >
