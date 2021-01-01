@@ -1,27 +1,45 @@
+<?
+  $countries = [
+    'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'US', 'UY'
+  ];
+
+  $currencies = [
+    'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'USD', 'UYU'
+  ];
+?>
+
 <div class="row">
   <div class="col">
     <select
-      name="sortby"
+      id="countrycode"
+      name="countrycode"
       class="border-grey border-0 text-muted"
       form="flights-search-form'"
       onchange="handleSubmit(event)"
     >
-      <option value="ar">AR</option>
-      <option value="co">CO</option>
-      <option value="aus">AUS</option>
+      <?
+        foreach($countries as $country) {
+      ?>
+        <option value="<? echo $country; ?>">
+          <? echo $country; ?>
+        </option>
+      <? } ?>
     </select>
   </div>
   <div class="col">
     <select
-      name="sortby"
+      name="currencycode"
       class="border-grey border-0 text-muted"
       form="flights-search-form'"
       onchange="handleSubmit(event)"
     >
-      <option value="ars">ARS</option>
-      <option value="cop">COP</option>
-      <option value="usd">USD</option>
-      <option value="aus">AUS</option>
+      <?
+        foreach($currencies as $currency) {
+      ?>
+        <option value="<? echo $currency; ?>">
+          <? echo $currency; ?>
+        </option>
+      <? } ?>
     </select>
   </div>
 </div>
