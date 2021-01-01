@@ -90,14 +90,15 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
 }
 
 function get_user_ip() {
+  $ip = "186.155.103.62"; // mock ip address from bogota, for the lulz
+  // unless we are in prod, we should be identified as CO, with currency COP
+
   $request_headers = getallheaders();
   // heroku passes origin IP in this header
   $forwarded_for = $request_headers['X-Forwarded-For'];
 
-  if ($ip) {
-    $ip = explode(',', $ip)[0];
-  } else {
-    $ip = $_ENV["MOCK_IP_ADDRESS"];
+  if ($forwarded_for) {
+    $ip = explode(',', $forwarded_for)[0];
   }
 
   return $ip;
