@@ -89,39 +89,6 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   }
 }
 
-function callAPI($method, $url, $data){
-  $curl = curl_init();
-  switch ($method){
-     case "POST":
-        curl_setopt($curl, CURLOPT_POST, 1);
-        if ($data)
-           curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        break;
-     case "PUT":
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-        if ($data)
-          curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        break;
-     default:
-        if ($data)
-           $url = sprintf("%s?%s", $url, http_build_query($data));
-  }
-  // OPTIONS:
-  curl_setopt($curl, CURLOPT_URL, $url);
-  curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-    //  'APIKEY: 111111111111111111111',
-     'Content-Type: application/json',
-  ));
-  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-  // EXECUTE:
-  $result = curl_exec($curl);
-  if(!$result){die("Connection Failure");}
-  curl_close($curl);
-  return $result;
-}
-
-
 function get_user_ip() {
   $request_headers = getallheaders();
   // heroku passes origin IP in this header
@@ -142,8 +109,9 @@ function xvuelos_get_userinfo() {
   $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
   $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
   $url = "$SKYSCANNER_URL/autosuggest/v1.0/US/USD/en?id=$ip-ip&apiKey=$SKYSCANNER_API_KEY";
-  $get_data = callAPI('GET', $url, false);
-  $response = json_decode($get_data, true);
+  $get_data = wp_remote_get($url);
+  $body = $get_data['body'];
+  $response = json_decode($body, true);
 
   $Places = $response['Places'];
   $Place = $Places[0];
