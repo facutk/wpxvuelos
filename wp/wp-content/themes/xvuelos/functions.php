@@ -47,32 +47,6 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   }
 }
 
-function get_foo_bar(WP_REST_Request $request) {
-  $data = [ 'foo' => 'bar'];
-
-  $response = new WP_REST_Response($data, 200);
-  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
-  
-  return $response;
-}
-
-function get_ip(WP_REST_Request $request) {
-  $ip  = $request->get_header('x-forwarded-for'); // heroku passes origin IP in this header
-  if ($ip) {
-    $ip = explode(',', $ip)[0];
-  } else {
-    $ip = $_ENV["MOCK_IP_ADDRESS"];
-  }
-
-  $data = [ 'ip' => $ip ];
-
-  $response = new WP_REST_Response($data, 200);
-  
-  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
-  
-  return $response;
-}
-
 function callAPI($method, $url, $data){
   $curl = curl_init();
   switch ($method){
@@ -153,7 +127,7 @@ function xvuelos_get_userinfo() {
   return $data;
 }
 
-function get_userinfo(WP_REST_Request $request) {
+function xvuelos_rest_get_userinfo(WP_REST_Request $request) {
   $userinfo = xvuelos_get_userinfo();
 
   $response = new WP_REST_Response($userinfo, 200);
@@ -164,19 +138,9 @@ function get_userinfo(WP_REST_Request $request) {
 }
 
 add_action( 'rest_api_init', function () {
-  register_rest_route('xvuelos/v1', '/hello/', [
-    'methods'  => WP_REST_Server::READABLE,
-    'callback' => 'get_foo_bar',
-  ]);
-
-  register_rest_route('xvuelos/v1', '/ip/', [
-    'methods'  => WP_REST_Server::READABLE,
-    'callback' => 'get_ip',
-  ]);
-
   register_rest_route('xvuelos/v1', '/userinfo/', [
     'methods'  => WP_REST_Server::READABLE,
-    'callback' => 'get_userinfo',
+    'callback' => 'xvuelos_rest_get_userinfo',
   ]);
 });
 
