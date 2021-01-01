@@ -27,7 +27,7 @@ function add_styles() {
 add_action( 'wp_enqueue_scripts', 'add_styles' );
 
 function xvuelos_get_flights() {
-  $mockSession = json_decode(file_get_contents('wp-content/themes/xvuelos/mockSession.json'), true);
+  $mockSession = json_decode(file_get_contents(get_stylesheet_directory() . '/mockSession.json'), true);
 
   return $mockSession;
 }
@@ -116,7 +116,6 @@ function get_userinfo(WP_REST_Request $request) {
 
   $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
   $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
-  // $url = "$SKYSCANNER_URL/autosuggest/v1.0/$country/$currency/$locale?query=$query&apiKey=$skyscanner_api_key";
   $url = "$SKYSCANNER_URL/autosuggest/v1.0/US/USD/en?id=$ip-ip&apiKey=$SKYSCANNER_API_KEY";
   $get_data = callAPI('GET', $url, false);
   $response = json_decode($get_data, true);
@@ -128,6 +127,13 @@ function get_userinfo(WP_REST_Request $request) {
 
   $locale = 'es-MX';
   $currency = 'USD';
+  $countryCurrencies = json_decode(file_get_contents(get_stylesheet_directory() . '/assets/country-json/country-by-currency-code.json'), true);
+  foreach($countryCurrencies as $countryCurrency) {
+    if ($countryCurrency["country"] == $CountryName) {
+      $currency = $countryCurrency["currency_code"];
+      break;
+    }
+  }
 
   $data = [
     'locale' => $locale,
