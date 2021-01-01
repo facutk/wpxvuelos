@@ -47,21 +47,41 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   }
 }
 
-function api_method(WP_REST_Request $request) {
-  $forwarded  = $request->get_header('x-forwarded-for');
-  $data = [ 'foo' => 'bar', 'ip' => $forwarded ];
+function hello_method(WP_REST_Request $request) {
+  $data = [ 'foo' => 'bar'];
 
   $response = new WP_REST_Response($data, 200);
-  
-  // Set headers.
   $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
   
   return $response;
 }
+
+function ip_method(WP_REST_Request $request) {
+  $ip  = $request->get_header('x-forwarded-for'); // heroku passes origin IP in this header
+  if ($ip) {
+    $ip = explode(',', $ip)[0];
+  } else {
+    $ip = "186.139.211.36"; // @TODO move this to an env var
+  }
+
+  $data = [ 'ip' => $ip ];
+
+  $response = new WP_REST_Response($data, 200);
+  
+  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
+  
+  return $response;
+}
+
 add_action( 'rest_api_init', function () {
   register_rest_route('xvuelos/v1', '/hello/', [
     'methods'  => WP_REST_Server::READABLE,
-    'callback' => 'api_method',
+    'callback' => 'hello_method',
+  ]);
+
+  register_rest_route('xvuelos/v1', '/ip/', [
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'ip_method',
   ]);
 });
 
