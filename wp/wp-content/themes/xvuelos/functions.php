@@ -6,6 +6,19 @@ add_action('init', function(){
     'index.php?pagename=vuelos&origin=$matches[1]&destination=$matches[2]&outboundDate=$matches[3]&inboundDate=$matches[4]', 
     'top'
     );
+
+  $userinfo = $_COOKIE["userinfo"];
+  if ($userinfo) {
+    $userinfo = json_decode(base64_decode($userinfo), true);
+    if (!$userinfo) {
+      unset( $_COOKIE["userinfo"]);
+    }
+  } else {
+    $userinfo = xvuelos_get_userinfo();
+    setcookie("userinfo", base64_encode(json_encode($userinfo)), time()+3600);  
+  }
+
+  $GLOBALS['userinfo'] = $userinfo;
 });
 
 add_filter('query_vars', function( $vars ){
