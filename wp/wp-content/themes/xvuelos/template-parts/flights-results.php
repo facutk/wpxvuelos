@@ -15,6 +15,8 @@ $inboundDate = get_query_var('inboundDate');
 $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 $mockSession = xvuelos_get_flights();
 
+$currency = $mockSession["Query"]["Currency"];
+
 $Itineraries = $mockSession["Itineraries"];
 $Carriers = $mockSession["Carriers"];
 
@@ -210,7 +212,7 @@ function getDateDiffInDays($departure, $arrival) {
                 </div>
                 <div class="col text-right align-text-bottom py-2">
                   <span class="font-weight-bold color-accent text-nowrap">
-                    <small>$</small><? echo number_format($price); ?>
+                    <small><? echo $currency; ?> </small><? echo number_format($price); ?>
                   </span>
                 </div>
               </div>
