@@ -187,7 +187,8 @@ function autocomplete(inp, direction) {
 
       }
     });
-    oReq.open("GET", "/api/autosuggest/AR/ARS/es-ES/" + query);
+
+    oReq.open("GET", "/wp-json/xvuelos/v1/places?query=" + query);
     oReq.send();
   }, 250);
 

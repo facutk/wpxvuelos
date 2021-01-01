@@ -85,7 +85,7 @@ if ( ! function_exists( 'xvuelos_theme_setup' ) ) {
 
 if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   function xvuelos_frontend_scripts() {
-    wp_enqueue_script('main', get_theme_file_uri('/assets/main.js'), array('jquery-ui-autocomplete', 'jquery'), '1.0.0', true );
+    wp_enqueue_script('flights-search', get_theme_file_uri('/assets/flights-search.js'), array('jquery-ui-autocomplete', 'jquery'), '1.0.0', true );
   }
 }
 
@@ -161,10 +161,46 @@ function xvuelos_rest_get_userinfo(WP_REST_Request $request) {
   return $response;
 }
 
+function xvuelos_get_place_suggestions($query) {
+  $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
+  $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
+
+  global $userinfo;
+
+  $market = $userinfo['market'];
+  $currency = $userinfo['currency'];
+  $locale = $userinfo['locale'];
+
+  $url = "$SKYSCANNER_URL/autosuggest/v1.0/$market/$currency/$locale?query=$query&apiKey=$SKYSCANNER_API_KEY";
+  $get_data = wp_remote_get($url);
+
+  $body = $get_data['body'];
+  $response = json_decode($body, true);
+
+  return $response['Places'];
+}
+
+function xvuelos_rest_get_places(WP_REST_Request $request) {
+  $query = $request->get_param('query');
+
+  $places = xvuelos_get_place_suggestions($query);
+
+  $response = new WP_REST_Response($places, 200);
+  
+  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
+  
+  return $response;
+}
+
 add_action( 'rest_api_init', function () {
   register_rest_route('xvuelos/v1', '/userinfo/', [
     'methods'  => WP_REST_Server::READABLE,
     'callback' => 'xvuelos_rest_get_userinfo',
+  ]);
+
+  register_rest_route('xvuelos/v1', '/places/', [
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'xvuelos_rest_get_places',
   ]);
 });
 
