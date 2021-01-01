@@ -46,8 +46,14 @@
 			</footer><!-- #site-footer -->
 
 		<?php wp_footer(); ?>
-		<?
-			echo $_SERVER['x-forwarded-for'];
-		?>
+    <?
+      $request_headers = getallheaders();
+      $forwarded_for = $request_headers['x-forwarded-for'];
+      var_dump($request_headers);
+    ?>
+    <hr />
+    <?
+      var_dump($forwarded_for);
+    ?>
 	</body>
 </html>
