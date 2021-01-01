@@ -106,13 +106,22 @@ function callAPI($method, $url, $data){
 }
 
 
-function get_userinfo(WP_REST_Request $request) {
-  $ip  = $request->get_header('x-forwarded-for'); // heroku passes origin IP in this header
+function get_user_ip() {
+  $request_headers = getallheaders();
+  // heroku passes origin IP in this header
+  $forwarded_for = $request_headers['X-Forwarded-For'];
+
   if ($ip) {
     $ip = explode(',', $ip)[0];
   } else {
     $ip = $_ENV["MOCK_IP_ADDRESS"];
   }
+
+  return $ip;
+}
+
+function xvuelos_get_userinfo() {
+  $ip = get_user_ip();
 
   $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
   $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
@@ -138,11 +147,16 @@ function get_userinfo(WP_REST_Request $request) {
   $data = [
     'locale' => $locale,
     'market' => $market,
-    'currency' => $currency,
-    'country' => $CountryName
+    'currency' => $currency
   ];
 
-  $response = new WP_REST_Response($data, 200);
+  return $data;
+}
+
+function get_userinfo(WP_REST_Request $request) {
+  $userinfo = xvuelos_get_userinfo();
+
+  $response = new WP_REST_Response($userinfo, 200);
   
   $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
   

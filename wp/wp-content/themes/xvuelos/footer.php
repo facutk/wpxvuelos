@@ -12,54 +12,41 @@
  */
 
 ?>
-			<footer id="site-footer" role="contentinfo" class="header-footer-group">
+      <footer id="site-footer" role="contentinfo" class="header-footer-group">
 
-				<div class="section-inner">
+        <div class="section-inner">
 
-					<div class="footer-credits">
+          <div class="footer-credits">
 
-						<p class="footer-copyright">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						</p><!-- .footer-copyright -->
+            <p class="footer-copyright">
+              <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+            </p><!-- .footer-copyright -->
 
 
 
-					</div><!-- .footer-credits -->
+          </div><!-- .footer-credits -->
 
-					<a class="to-the-top" href="#site-header">
-						<span class="to-the-top-long">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'To the top %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
-						</span><!-- .to-the-top-long -->
-						<span class="to-the-top-short">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'Up %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
-						</span><!-- .to-the-top-short -->
-					</a><!-- .to-the-top -->
+          <? get_template_part( 'template-parts/flights-locale-selector' ); ?>
 
-				</div><!-- .section-inner -->
+          <a class="to-the-top" href="#site-header">
+            <span class="to-the-top-long">
+              <?php
+              /* translators: %s: HTML character for up arrow. */
+              printf( __( 'To the top %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+              ?>
+            </span><!-- .to-the-top-long -->
+            <span class="to-the-top-short">
+              <?php
+              /* translators: %s: HTML character for up arrow. */
+              printf( __( 'Up %s', 'twentytwenty' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+              ?>
+            </span><!-- .to-the-top-short -->
+          </a><!-- .to-the-top -->
 
-			</footer><!-- #site-footer -->
+        </div><!-- .section-inner -->
 
-		<?php wp_footer(); ?>
-    <?
-      $request_headers = getallheaders();
-      
-      var_dump($request_headers);
-    ?>
-    <hr />
-    <?
-      $forwarded_for = $request_headers['X-Forwarded-For'];
-      var_dump($forwarded_for);
-    ?>
-    <hr />
-    <?
-      $forwarded_for = $_SERVER['X-Forwarded-For'];
-      var_dump($forwarded_for);
-    ?>
-	</body>
+      </footer><!-- #site-footer -->
+
+    <?php wp_footer(); ?>
+  </body>
 </html>
