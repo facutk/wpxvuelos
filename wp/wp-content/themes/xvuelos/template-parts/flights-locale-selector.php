@@ -1,12 +1,10 @@
 <?
-  $markets = [
-    'US', 'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'UY'
-  ];
+  $markets = xvuelos_get_markets();
+  $currencies = xvuelos_get_currencies();
 
-  $currencies = [
-    'USD', 'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'UYU'
-  ];
   global $userinfo;
+
+  // var_dump($userinfo);
 ?>
 
 <div class="row">

@@ -1,4 +1,20 @@
 <?php
+function xvuelos_get_markets() {
+  $markets = [
+    'US', 'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'UY'
+  ];
+
+  return $markets;
+}
+
+function xvuelos_get_currencies() {
+  $currencies = [
+    'USD', 'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'UYU'
+  ];
+
+  return $currencies;
+}
+
 add_action('init', function(){
   add_rewrite_rule( 
     '^vuelos/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?', 
@@ -118,26 +134,40 @@ function xvuelos_get_userinfo() {
 
   $Places = $response['Places'];
   $Place = $Places[0];
-  $market = explode('-', $Place["CountryId"])[0];
-  $CountryName = $Place["CountryName"];
 
+  // locale
   $locale = 'es-MX';
-  $currency = 'USD';
-  $countryCurrencies = json_decode(file_get_contents(get_stylesheet_directory() . '/assets/country-json/country-by-currency-code.json'), true);
-  foreach($countryCurrencies as $countryCurrency) {
-    if ($countryCurrency["country"] == $CountryName) {
-      $currency = $countryCurrency["currency_code"];
-      break;
+
+  // market
+  $market = explode('-', $Place["CountryId"])[0];
+  $supported_markets = xvuelos_get_markets();
+  $is_market_supported = in_array($market, $supported_markets);
+  if (!$is_market_supported) {
+    $market = $supported_markets[0];
+  }
+  
+  // currency
+  $supported_currencies = xvuelos_get_currencies();
+  $currency = $supported_currencies[0];
+
+  if ($is_market_supported) {
+    $CountryName = $Place["CountryName"];
+    $countryCurrencies = json_decode(file_get_contents(get_stylesheet_directory() . '/assets/country-json/country-by-currency-code.json'), true);
+    foreach($countryCurrencies as $countryCurrency) {
+      if ($countryCurrency["country"] == $CountryName) {
+        $currency = $countryCurrency["currency_code"];
+        break;
+      }
     }
   }
 
-  $data = [
+  $userinfo = [
     'locale' => $locale,
     'market' => $market,
     'currency' => $currency
   ];
 
-  return $data;
+  return $userinfo;
 }
 
 function xvuelos_rest_get_userinfo(WP_REST_Request $request) {
