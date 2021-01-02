@@ -40,13 +40,13 @@ function init_userinfo() {
 
 function xvuelos_get_markets() {
   return [
-    'US', 'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'UY'
+    'US', 'AR', 'BR', 'CL', 'CO', 'EC', 'ES', 'MX', 'PE', 'PA', 'UY', 'AU'
   ];
 }
 
 function xvuelos_get_currencies() {
   return [
-    'USD', 'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'UYU'
+    'USD', 'ARS', 'BRL', 'CLP', 'COP', 'ECS', 'EUR', 'MXN', 'PEN', 'PYG', 'UYU', 'AUD'
   ];
 }
 
