@@ -85,7 +85,7 @@ if ( ! function_exists( 'xvuelos_theme_setup' ) ) {
 
 if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   function xvuelos_frontend_scripts() {
-    wp_enqueue_script('flights-search', get_theme_file_uri('/assets/flights-search.js'), array('jquery-ui-autocomplete', 'jquery'), '1.0.0', true );
+    wp_enqueue_script('flights-search', get_theme_file_uri('/assets/flights-search.js'), array('jquery', 'jquery-ui-autocomplete'), '1.0.0', true );
   }
 }
 
@@ -194,7 +194,16 @@ function xvuelos_get_place_suggestions($query) {
 }
 
 function xvuelos_rest_get_places(WP_REST_Request $request) {
+  global $userinfo;
+
   $term = $request->get_param('term');
+  $station = $request->get_param('station');
+
+  // this is a hack to suggest places near the origin station
+  if (strlen($term) == 0 && $station == 'origin') {
+    $market = $userinfo['market'];
+    $term = $market;
+  };
 
   $places = xvuelos_get_place_suggestions($term);
 

@@ -39,3 +39,12 @@ input[type="radio"] + label {
 	font-weight: 400;
 	margin-left: 0.5rem;
 }
+
+.search-form {
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .search-form {
+    flex-direction: row;
+  } 
+}
