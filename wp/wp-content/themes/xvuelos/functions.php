@@ -226,4 +226,26 @@ add_action( 'rest_api_init', function () {
   ]);
 });
 
+
+add_action("template_redirect", "start_buffer");
+add_action("shutdown", "end_buffer", 999);
+
+function filter_buffer($buffer) {
+  $buffer = replace_insecure_links($buffer);
+  return $buffer;
+}
+function start_buffer(){
+  ob_start("filter_buffer");
+}
+
+function end_buffer(){
+  if (ob_get_length()) ob_end_flush();
+}
+
+function replace_insecure_links($str) {
+  $str = str_replace ( array("http://wp.xvuelos.com/", "https://wp.xvuelos.com/") , array("/", "/"), $str);
+
+  return apply_filters("rsssl_fixer_output", $str);
+}
+
 flush_rewrite_rules();
