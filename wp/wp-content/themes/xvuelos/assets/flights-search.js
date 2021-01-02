@@ -17,19 +17,20 @@
         .appendTo( ul );
     };
 
-    $( "#flights-search-origin" ).autocomplete({
-      source: "/wp-json/xvuelos/v1/places?station=origin",
-      minLength: 0
-    })
-    
-    .focus(function () {
-      $(this).autocomplete("search", "");
-    });
+    $( "#flights-search-origin" )
+      .autocomplete({
+        source: "/wp-json/xvuelos/v1/places?station=origin",
+        minLength: 0
+      })    
+      .focus(function () {
+        $(this).autocomplete("search", "");
+      });
 
-    $( "#flights-search-destination" ).autocomplete({
-      source: "/wp-json/xvuelos/v1/places?station=destination",
-      minLength: 2
-    }); // TODO: find out if there is any way to retrieve popular destinations
+    $( "#flights-search-destination" )
+      .autocomplete({
+        source: "/wp-json/xvuelos/v1/places?station=destination",
+        minLength: 2
+      }); // TODO: find out if there is any way to retrieve popular destinations
 
   });
 })(jQuery);
