@@ -6,8 +6,8 @@
     form="flights-search-form'"
     onchange="handleSubmit(event)"
   >
-    <option value="best">Mejor opción</option>
-    <option value="fast">Más rápido</option>
+    <option value="">Mejor opción</option>
+    <option value="duration">Más rápido</option>
     <option value="price">Mejor precio</option>
   </select>
 </div>

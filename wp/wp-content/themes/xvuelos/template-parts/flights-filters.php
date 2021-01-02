@@ -15,11 +15,6 @@
       <input type="radio" id="stops-one" name="stops" value="one">
       <label for="stops-one">Una o menos</label>
     </div>
-
-    <div>
-      <input type="radio" id="stops-two" name="stops" value="two">
-      <label for="stops-two">Dos o menos</label>
-    </div>
   </fieldset>
 
   <hr class="mt-0 mb-5 ml-3">
