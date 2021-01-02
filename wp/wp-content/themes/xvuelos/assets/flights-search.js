@@ -28,11 +28,8 @@
 
     $( "#flights-search-destination" ).autocomplete({
       source: "/wp-json/xvuelos/v1/places?station=destination",
-      minLength: 0
-    }) // TODO: find out if there is any way to retrieve popular destinations
-    .focus(function () {
-      $(this).autocomplete("search", "");
-    });
+      minLength: 2
+    }); // TODO: find out if there is any way to retrieve popular destinations
 
   });
 })(jQuery);
