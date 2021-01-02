@@ -2,17 +2,17 @@
   <fieldset id="stops" class="border-0 pt-3">
     <legend>Escalas</legend>
     <div>
-      <input type="radio" id="stops-all" name="stops" value="all" checked>
+      <input type="radio" id="stops-all" name="stops" value="" checked>
       <label for="stops-all">Todas</label>
     </div>
 
     <div>
-      <input type="radio" id="stops-nonstop" name="stops" value="nonstop">
+      <input type="radio" id="stops-nonstop" name="stops" value="0">
       <label for="stops-nonstop">Directo</label>
     </div>
 
     <div>
-      <input type="radio" id="stops-one" name="stops" value="one">
+      <input type="radio" id="stops-one" name="stops" value="1">
       <label for="stops-one">Una o menos</label>
     </div>
   </fieldset>

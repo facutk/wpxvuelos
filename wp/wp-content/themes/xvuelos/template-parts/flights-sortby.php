@@ -3,8 +3,6 @@
   <select
     name="sortby"
     class="w-100 p-3 border-grey bg-white"
-    form="flights-search-form'"
-    onchange="handleSubmit(event)"
   >
     <option value="">Mejor opción</option>
     <option value="duration">Más rápido</option>

@@ -243,7 +243,7 @@ function end_buffer(){
 }
 
 function replace_insecure_links($str) {
-  $str = str_replace ( array("http://wp.xvuelos.com/", "https://wp.xvuelos.com/") , array("/", "/"), $str);
+  $str = str_replace ( array("http://localhost:8080/", "http://wp.xvuelos.com/", "https://wp.xvuelos.com/") , array("/", "/", "/"), $str);
 
   return apply_filters("rsssl_fixer_output", $str);
 }
