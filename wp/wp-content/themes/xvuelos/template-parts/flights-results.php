@@ -26,6 +26,7 @@ $mockSession = xvuelos_get_flights();
 $currency = $mockSession["Query"]["Currency"];
 
 $Itineraries = $mockSession["Itineraries"];
+$ItinerariesPaginated = array_slice($Itineraries, $offset * $pagesize, $pagesize);
 $Carriers = $mockSession["Carriers"];
 
 $legs = array_column($mockSession["Legs"], NULL, 'Id');
@@ -82,7 +83,7 @@ function getDateDiffInDays($departure, $arrival) {
     <? get_template_part( 'template-parts/flights-sortby' ); ?>
 
     <?
-      foreach ($Itineraries as $Itinerary) {
+      foreach ($ItinerariesPaginated as $Itinerary) {
         $itineraryLegs = [
           $Itinerary["OutboundLegId"],
           $Itinerary["InboundLegId"]

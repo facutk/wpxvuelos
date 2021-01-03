@@ -48,3 +48,11 @@ input[type="radio"] + label {
     flex-direction: row;
   } 
 }
+
+.search-submit:disabled {
+  background-color: #d6d7df;
+  cursor: auto;
+}
+.search-submit:disabled:hover {
+  text-decoration: none;
+}
