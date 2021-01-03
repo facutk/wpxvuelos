@@ -1,20 +1,46 @@
+<?
+  $selectedStops = get_query_var("stops");
+
+  $stopsOptions = [
+    [
+      "label" => "Todas",
+      "value" => null
+    ],
+    [
+      "label" => "Directo",
+      "value" => "0"
+    ],
+    [
+      "label" => "Una o menos",
+      "value" => "1"
+    ],
+  ];
+?>
+
 <div>
   <fieldset id="stops" class="border-0 pt-3">
     <legend>Escalas</legend>
-    <div>
-      <input type="radio" id="stops-all" name="stops" value="" checked>
-      <label for="stops-all">Todas</label>
-    </div>
-
-    <div>
-      <input type="radio" id="stops-nonstop" name="stops" value="0">
-      <label for="stops-nonstop">Directo</label>
-    </div>
-
-    <div>
-      <input type="radio" id="stops-one" name="stops" value="1">
-      <label for="stops-one">Una o menos</label>
-    </div>
+    <?
+      foreach($stopsOptions as $option) {
+        $label = $option["label"];
+        $value = $option["value"];
+        $checked = $selectedStops == $value;
+    ?>
+      <div>
+        <input
+          type="radio"
+          id="stops-<? echo $value; ?>"
+          name="stops"
+          value="<? echo $value; ?>"
+          <? if ($checked) echo 'checked'; ?>
+        />
+        <label for="stops-<? echo $value; ?>" >
+          <? echo $label; ?>
+        </label>
+      </div>
+    <?
+      }
+    ?>
   </fieldset>
 
   <hr class="mt-0 mb-5 ml-3">
@@ -23,15 +49,24 @@
     <legend>Aerolíneas</legend>
     <?
       $carriers = $args['carriers'];
-      array_unshift( $carriers, ["Name" => 'Todas', "Id" => null]);
+      $selectedCarriers = explode(";", get_query_var("carriers"));
 
       foreach ($carriers as $carrier) {
         $name = $carrier["Name"];
         $id = $carrier["Id"];
+        $checked = in_array($id, $selectedCarriers);
     ?>
       <div>
-        <input type="checkbox" id="carriers-<? echo $id; ?>" name="carriers" value="<? echo $id; ?>">
-        <label for="carriers-<? echo $id; ?>"><? echo $name; ?></label>
+        <input
+          type="checkbox"
+          id="carriers-<? echo $id; ?>"
+          name="carriers"
+          value="<? echo $id; ?>"
+          <? if ($checked) echo 'checked'; ?>
+        />
+        <label for="carriers-<? echo $id; ?>">
+          <? echo $name; ?>
+        </label>
       </div>
     <?
       }

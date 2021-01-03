@@ -56,6 +56,9 @@ add_filter('query_vars', function( $vars ){
   $vars[] = 'destination';
   $vars[] = 'outboundDate';
   $vars[] = 'inboundDate';
+  $vars[] = 'sortby';
+  $vars[] = 'stops';
+  $vars[] = 'carriers';
   $vars[] = "loading";
   return $vars;
 });

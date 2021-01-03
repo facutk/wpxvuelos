@@ -11,6 +11,9 @@ $origin = get_query_var('origin');
 $destination = get_query_var('destination');
 $outboundDate = get_query_var('outboundDate');
 $inboundDate = get_query_var('inboundDate');
+$selectedSortby = get_query_var('sortby');
+$selectedStops = get_query_var('stops');
+$selectedCarriers = get_query_var('carriers');
 
 $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 $mockSession = xvuelos_get_flights();

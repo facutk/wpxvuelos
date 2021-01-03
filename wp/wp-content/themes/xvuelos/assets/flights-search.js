@@ -42,17 +42,10 @@
       var stops = jQuery("input[name='stops']:checked").val();
 
       var carriers = [];
-      var isAllCarriersChecked;
       jQuery("input[name='carriers']:checked").each(function () {
         var value = jQuery(this).val();
-        if (!value) {
-          isAllCarriersChecked = true;
-        }
         carriers.push(parseInt(value));
       });
-      if (isAllCarriersChecked) {
-        carriers = [];
-      }
 
       carriers = carriers.join(';')
 
