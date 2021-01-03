@@ -19,8 +19,6 @@
   if (strlen($inboundDate) == 0) {
     $inboundDate = $today;
   }
-
-  // $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 ?>
 
 <div class="my-5">

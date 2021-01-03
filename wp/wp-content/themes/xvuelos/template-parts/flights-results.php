@@ -14,6 +14,11 @@ $inboundDate = get_query_var('inboundDate');
 $selectedSortby = get_query_var('sortby');
 $selectedStops = get_query_var('stops');
 $selectedCarriers = get_query_var('carriers');
+$offset = get_query_var('offset');
+if (!$offset) {
+  $offset = 0;
+}
+$pagesize = 3;
 
 $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
 $mockSession = xvuelos_get_flights();
@@ -26,12 +31,6 @@ $Carriers = $mockSession["Carriers"];
 $legs = array_column($mockSession["Legs"], NULL, 'Id');
 $places = array_column($mockSession["Places"], NULL, 'Id');
 $carriers = array_column($mockSession["Carriers"], NULL, 'Id');
-
-$arrayFlights = [];
-$directionalityLabels = [
-  "Outbound" => "Ida",
-  "Inbound" => "Vuelta"
-];
 
 $directionalityLabels = [
   "Outbound" => "Ida",
@@ -51,7 +50,6 @@ function humanizeDuration($duration) {
   $interval = $dt->diff(new DateTime());
   return ltrim($interval->format('%Hhs %Im'), '0');
 }
-
 
 function getDateDiffInDays($departure, $arrival) {
   return intval(date_diff(
@@ -235,7 +233,17 @@ function getDateDiffInDays($departure, $arrival) {
       }
     ?>
     
-    <? get_template_part( 'template-parts/flights-pagination' ); ?>
+    <?
+      get_template_part(
+        'template-parts/flights-pagination',
+        null,
+        [
+          'offset' => $offset,
+          'total' => sizeof($Itineraries),
+          'pagesize' => $pagesize
+        ]
+      );
+    ?>
   </div>
 
   <div class="col-md-2 mb-4 d-none d-md-block">

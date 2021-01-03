@@ -1,8 +1,7 @@
 <?
-  $offset = get_query_var("offset");
-  if (!$offset) {
-    $offset = 0;
-  }
+  $offset = $args['offset'];
+  $total = $args['total'];
+  $pagesize = $args['pagesize'];
 
   function genPageUrl($pageNumber) {
     global $origin;
