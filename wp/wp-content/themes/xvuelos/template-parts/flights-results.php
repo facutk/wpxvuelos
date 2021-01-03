@@ -90,6 +90,7 @@ function getDateDiffInDays($departure, $arrival) {
           $Itinerary["InboundLegId"]
         ];
         $price = $Itinerary["PricingOptions"][0]["Price"];
+        $deeplinkUrl = $Itinerary["PricingOptions"][0]["DeeplinkUrl"];
     ?>
 
       <div class="card my-3">
@@ -211,7 +212,12 @@ function getDateDiffInDays($departure, $arrival) {
             <div class="col-lg-3">
               <div class="row">
                 <div class="col">
-                  <input type="submit" class="search-submit w-100 py-3" value="ver">
+                  <input
+                    type="submit"
+                    class="search-submit w-100 py-3"
+                    value="ver"
+                    onclick="window.open('<? echo $deeplinkUrl; ?>','_blank')"
+                  />
                 </div>
                 <div class="col text-right align-text-bottom py-2">
                   <span class="font-weight-bold color-accent text-nowrap">

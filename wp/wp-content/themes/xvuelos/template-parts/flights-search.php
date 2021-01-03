@@ -27,12 +27,12 @@
   <form autocomplete="off" role="search" class="search-form" id="flights-search-form">
     <label for="flights-search-origin" class="autocomplete">
       <span class="screen-reader-text">Origen</span>
-      <input type="search" id="flights-search-origin" class="search-field" placeholder="Origen" value="<?php echo $origin ?>" name="origin" />
+      <input type="search" id="flights-search-origin" class="search-field" placeholder="Origen" value="<?php echo $origin ?>" name="origin" required />
     </label>
 
     <label for="flights-search-destination" class="autocomplete">
       <span class="screen-reader-text">Destino</span>
-      <input type="search" id="flights-search-destination" class="search-field" placeholder="Destino" value="<?php echo $destination ?>" name="destination" />
+      <input type="search" id="flights-search-destination" class="search-field" placeholder="Destino" value="<?php echo $destination ?>" name="destination" required />
     </label>
 
     <label for="flights-search-departure-date">
