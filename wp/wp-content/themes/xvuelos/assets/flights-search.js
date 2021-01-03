@@ -56,37 +56,25 @@
 
       carriers = carriers.join(';')
 
-      console.log({
-        origin, destination, departureDate, returnDate, sortby, stops, carriers
-      });
-
       var url = "/vuelos/"
         + origin + "/"
         + destination + "/"
         + departureDate + "/"
         + returnDate + "/";
-      
-      var appendSymbol = '?';
-      
-      if (sortby) {
-        url = url
-          + appendSymbol
-          + 'sortby=' + sortby;
-        appendSymbol = '&';
-      }
 
-      if (stops) {
-        url = url
-          + appendSymbol
-          + 'stops=' + stops;
-        appendSymbol = '&';
-      }
+      var queryParams = { sortby, stops, carriers };
+      var queryString = Object.keys(queryParams).reduce(function (acc, key){
+        if (queryParams[key]) {
+          if (acc) {
+            acc += '&';
+          }
+          acc += key + '=' + queryParams[key];
+        }
+        return acc;
+      }, "");
 
-      if (carriers) {
-        url = url
-          + appendSymbol
-          + 'carriers=' + carriers;
-        appendSymbol = '&';
+      if (queryString) {
+        url += '?' + queryString;
       }
 
       window.location.href = url; //'/vuelos/EZE/MIA/2020-10-13/2020-10-28';
