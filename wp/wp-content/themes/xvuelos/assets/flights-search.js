@@ -40,6 +40,10 @@
       var returnDate = jQuery("#flights-search-return-date").val();
       var sortby = jQuery("select[name='sortby']").val();
       var stops = jQuery("input[name='stops']:checked").val();
+      var offset = jQuery("input[name='offset']").val();
+      if (offset === "0") {
+        offset = "";
+      }
 
       var carriers = [];
       jQuery("input[name='carriers']:checked").each(function () {
@@ -55,7 +59,7 @@
         + departureDate + "/"
         + returnDate + "/";
 
-      var queryParams = { sortby, stops, carriers };
+      var queryParams = { offset, sortby, stops, carriers };
       var queryString = Object.keys(queryParams).reduce(function (acc, key){
         if (queryParams[key]) {
           if (acc) {
@@ -70,15 +74,29 @@
         url += '?' + queryString;
       }
 
+      console.log(url);
       window.location.href = url; //'/vuelos/EZE/MIA/2020-10-13/2020-10-28';
     };
+
+    function handleMoreResults() {
+      var offset = parseInt(jQuery("input[name='offset']").val());
+      jQuery("input[name='offset']").val(offset + 1);
+      handleSearch();
+    }
+    function handleFilterChange() {
+      jQuery("input[name='offset']").val(0);
+      handleSearch();
+    }
 
     $("#flights-search-form").on('submit', function(e){
       e.preventDefault();
       handleSearch();
    });
    $("select[name='sortby']").on('change', handleSearch);
-   $("input[name='stops']").on('change', handleSearch);
-   $("input[name='carriers']").on('change', handleSearch);
+   $("input[name='stops']").on('change', handleFilterChange);
+   $("input[name='carriers']").on('change', handleFilterChange);
+
+   $("input[name='more-results']").on('click', handleMoreResults);
+   
   });
 })(jQuery);

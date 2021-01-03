@@ -1,4 +1,9 @@
 <?
+  $offset = get_query_var("offset");
+  if (!$offset) {
+    $offset = 0;
+  }
+
   function genPageUrl($pageNumber) {
     global $origin;
     global $destination;
@@ -14,7 +19,7 @@
       . "&" . "arrival=" . $arrival;
   };
 
-  $noMoreResults = (($page + 1) * $PAGE_SIZE) >= $total;
+  // $noMoreResults = (($page + 1) * $PAGE_SIZE) >= $total;
 ?>
 
 <!-- <nav aria-label="...">
@@ -41,4 +46,5 @@
   </ul>
 </nav> -->
 
-<input type="submit" class="search-submit w-100" value="Mas Resultados">
+<input name="more-results" type="submit" class="search-submit w-100" value="Mas Resultados" />
+<input type="hidden" name="offset" value="<? echo $offset; ?>" />

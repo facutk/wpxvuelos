@@ -59,6 +59,7 @@ add_filter('query_vars', function( $vars ){
   $vars[] = 'sortby';
   $vars[] = 'stops';
   $vars[] = 'carriers';
+  $vars[] = 'offset';
   $vars[] = "loading";
   return $vars;
 });
