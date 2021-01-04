@@ -73,7 +73,14 @@ function add_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'add_styles' );
 
-function xvuelos_get_flights() {
+function xvuelos_get_flights($sid) {
+  if ($sid) {
+    $pageIndex = 0;
+    $pageSize = 3;
+    $results = xvuelos_poll($sid, $pageIndex, $pageSize);
+    return $results;
+  }
+  
   $mockSession = json_decode(file_get_contents(get_stylesheet_directory() . '/mockSession.json'), true);
 
   return $mockSession;
@@ -294,9 +301,7 @@ function xvuelos_poll($sid, $pageIndex, $pageSize) {
   $payload = json_decode($body, true);
   $status = $payload["Status"];
   
-  return [
-    "Status" => $status
-  ];
+  return $payload;
 }
 
 function xvuelos_rest_poll(WP_REST_Request $request) {
@@ -304,8 +309,11 @@ function xvuelos_rest_poll(WP_REST_Request $request) {
   $pageIndex = 0; // polling should always be at page 0
   $pageSize = 1; // we don't need a huge payload just to know if updates are complete
   $results = xvuelos_poll($sid, $pageIndex, $pageSize);
+  $miniResults = [
+    "Status" => $results["Status"]
+  ]; // send only whats needed
 
-  $response = new WP_REST_Response($results, 200);
+  $response = new WP_REST_Response($miniResults, 200);
   
   $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
   

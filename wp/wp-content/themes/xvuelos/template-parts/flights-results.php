@@ -15,13 +15,14 @@ $selectedSortby = get_query_var('sortby');
 $selectedStops = get_query_var('stops');
 $selectedCarriers = get_query_var('carriers');
 $offset = get_query_var('offset');
+$sid = get_query_var('sid');
 if (!$offset) {
   $offset = 0;
 }
 $pagesize = 3;
 
 $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
-$mockSession = xvuelos_get_flights();
+$mockSession = xvuelos_get_flights($sid);
 
 $currency = $mockSession["Query"]["Currency"];
 
