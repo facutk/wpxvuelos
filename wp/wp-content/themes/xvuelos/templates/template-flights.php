@@ -15,7 +15,8 @@
 
   $loading = false;
   if ($pagename && !$sid) {
-    $sid = xvuelos_create_sessionid();
+    $loading = true;
+    // $sid = xvuelos_create_sessionid();
     // wp_redirect('?sid=' . $sid);
     // exit;
   }

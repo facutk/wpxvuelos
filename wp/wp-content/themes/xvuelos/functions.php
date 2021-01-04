@@ -94,48 +94,6 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   }
 }
 
-function xvuelos_create_sessionid() {
-  return 2;
-
-  $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
-  $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
-  
-  global $userinfo;
-
-  $market = $userinfo["market"];
-  $currency = $userinfo["currency"];
-  $locale = $userinfo["locale"];
-  
-  $originplace = get_query_var('origin');
-  $destinationplace = get_query_var('destination');
-  $outbounddate = get_query_var('outboundDate');
-  $inbounddate = get_query_var('inboundDate');
-  $body = [
-    "country" => $market,
-    "currency" => $currency,
-    "locale" => $locale,
-    "adults" => 1,
-    "children" => 0,
-    "infants" => 0,
-    "locationSchema" => "iata",
-    "originplace" => $originplace,
-    "cabinClass" => "economy",
-    "destinationplace" => $destinationplace,
-    "outbounddate" => $outbounddate,
-    "inbounddate" => $inbounddate,
-    "groupPricing" => false,
-    "apikey" => $SKYSCANNER_API_KEY
-  ];
-  $url = $SKYSCANNER_URL . '/pricing/v1.0';
-  $response = wp_remote_post($url, [
-    'body' => $body
-  ]);
-  $headers = $response["headers"];
-  $location = $headers["location"];
-
-  var_dump($location);
-}
-
 function get_user_ip() {
   $ip = "186.155.103.62"; // mock ip address from bogota, for the lulz
   // unless we are in prod, we should be identified as CO, with currency COP
@@ -261,6 +219,68 @@ function xvuelos_rest_get_places(WP_REST_Request $request) {
   return $response;
 }
 
+function xvuelos_create_sessionid(
+  $originplace,
+  $destinationplace,
+  $outbounddate,
+  $inbounddate
+) {
+  $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
+  $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
+  
+  global $userinfo;
+
+  $market = $userinfo["market"];
+  $currency = $userinfo["currency"];
+  $locale = $userinfo["locale"];
+
+  $body = [
+    "country" => $market,
+    "currency" => $currency,
+    "locale" => $locale,
+    "adults" => 1,
+    "children" => 0,
+    "infants" => 0,
+    "locationSchema" => "iata",
+    "originplace" => $originplace,
+    "cabinClass" => "economy",
+    "destinationplace" => $destinationplace,
+    "outbounddate" => $outbounddate,
+    "inbounddate" => $inbounddate,
+    "groupPricing" => false,
+    "apikey" => $SKYSCANNER_API_KEY
+  ];
+  $url = $SKYSCANNER_URL . '/pricing/v1.0';
+  $response = wp_remote_post($url, [
+    'body' => $body
+  ]);
+  $headers = $response["headers"];
+  $location = $headers["location"];
+  $sid = end(explode('/', $location));
+
+  return $sid;
+}
+
+function xvuelos_rest_sessionid(WP_REST_Request $request) {
+  $originplace = $request->get_param('originplace');
+  $destinationplace = $request->get_param('destinationplace');
+  $outbounddate = $request->get_param('outbounddate');
+  $inbounddate = $request->get_param('inbounddate');
+
+  $sessionid = xvuelos_create_sessionid(
+    $originplace,
+    $destinationplace,
+    $outbounddate,
+    $inbounddate
+  );
+
+  $response = new WP_REST_Response($sessionid, 200);
+  
+  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
+  
+  return $response;
+}
+
 add_action( 'rest_api_init', function () {
   register_rest_route('xvuelos/v1', '/userinfo/', [
     'methods'  => WP_REST_Server::READABLE,
@@ -270,6 +290,11 @@ add_action( 'rest_api_init', function () {
   register_rest_route('xvuelos/v1', '/places/', [
     'methods'  => WP_REST_Server::READABLE,
     'callback' => 'xvuelos_rest_get_places',
+  ]);
+
+  register_rest_route('xvuelos/v1', '/session/', [
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'xvuelos_rest_sessionid',
   ]);
 });
 
