@@ -139,4 +139,38 @@
   mediaQuery.addListener(handleTabletChange)
 
   handleTabletChange(mediaQuery);
+
+  var baseurl = "/wp-json/xvuelos/v1";
+  var originplace = "<? echo get_query_var('origin'); ?>";
+  var destinationplace = "<? echo get_query_var('destination'); ?>";
+  var outbounddate = "<? echo get_query_var('outboundDate'); ?>";
+  var inbounddate = "<? echo get_query_var('inboundDate'); ?>";
+  var url = baseurl
+    + "/session?"
+    + "originplace=" + originplace
+    + "&destinationplace=" + destinationplace
+    + "&outbounddate=" + outbounddate
+    + "&inbounddate=" + inbounddate;
+
+  fetch(url)
+    .then(r => r.json())
+    .then(poll);
+
+  function poll(sid) {
+    var url = baseurl
+      + "/poll?"
+      + "sid=" + sid;
+
+    setTimeout(() => {
+      fetch(url)
+        .then(r => r.json())
+        .then((response) => {
+          if (response.Status === "UpdatesComplete") {
+            window.location.href += "?sid=" + sid;
+          } else {
+            poll(sid);
+          }
+        });
+    }, 1);
+  }
 </script>
