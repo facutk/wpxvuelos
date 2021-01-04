@@ -61,6 +61,7 @@ add_filter('query_vars', function( $vars ){
   $vars[] = 'carriers';
   $vars[] = 'offset';
   $vars[] = "loading";
+  $vars[] = "sid";
   return $vars;
 });
 
@@ -91,6 +92,48 @@ if ( ! function_exists( 'xvuelos_frontend_scripts' ) ) {
   function xvuelos_frontend_scripts() {
     wp_enqueue_script('flights-search', get_theme_file_uri('/assets/flights-search.js'), array('jquery', 'jquery-ui-autocomplete'), '1.0.0', true );
   }
+}
+
+function xvuelos_create_sessionid() {
+  return 2;
+
+  $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
+  $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
+  
+  global $userinfo;
+
+  $market = $userinfo["market"];
+  $currency = $userinfo["currency"];
+  $locale = $userinfo["locale"];
+  
+  $originplace = get_query_var('origin');
+  $destinationplace = get_query_var('destination');
+  $outbounddate = get_query_var('outboundDate');
+  $inbounddate = get_query_var('inboundDate');
+  $body = [
+    "country" => $market,
+    "currency" => $currency,
+    "locale" => $locale,
+    "adults" => 1,
+    "children" => 0,
+    "infants" => 0,
+    "locationSchema" => "iata",
+    "originplace" => $originplace,
+    "cabinClass" => "economy",
+    "destinationplace" => $destinationplace,
+    "outbounddate" => $outbounddate,
+    "inbounddate" => $inbounddate,
+    "groupPricing" => false,
+    "apikey" => $SKYSCANNER_API_KEY
+  ];
+  $url = $SKYSCANNER_URL . '/pricing/v1.0';
+  $response = wp_remote_post($url, [
+    'body' => $body
+  ]);
+  $headers = $response["headers"];
+  $location = $headers["location"];
+
+  var_dump($location);
 }
 
 function get_user_ip() {
