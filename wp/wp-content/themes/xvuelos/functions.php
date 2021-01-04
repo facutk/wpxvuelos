@@ -281,6 +281,34 @@ function xvuelos_rest_sessionid(WP_REST_Request $request) {
   return $response;
 }
 
+function xvuelos_poll($sid, $pageIndex, $pageSize) {
+  $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
+  $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
+
+  $url = "$SKYSCANNER_URL/pricing/uk1/v1.0/$sid?apiKey=$SKYSCANNER_API_KEY&pageIndex=$pageIndex&pageSize=$pageSize";
+  $response = wp_remote_get($url, [
+    "timeout" => 60
+  ]);
+
+  $body = $response["body"];
+  $payload = json_decode($body, true);
+  
+  return $payload;
+}
+
+function xvuelos_rest_poll(WP_REST_Request $request) {
+  $sid = $request->get_param('sid');
+  $pageIndex = 0; // polling should always be at page 0
+  $pageSize = 1; // we don't need a huge payload just to know if updates are complete
+  $results = xvuelos_poll($sid, $pageIndex, $pageSize);
+
+  $response = new WP_REST_Response($results, 200);
+  
+  $response->set_headers([ 'Cache-Control' => 'must-revalidate, no-cache, no-store, private' ]);
+  
+  return $response;
+}
+
 add_action( 'rest_api_init', function () {
   register_rest_route('xvuelos/v1', '/userinfo/', [
     'methods'  => WP_REST_Server::READABLE,
@@ -295,6 +323,11 @@ add_action( 'rest_api_init', function () {
   register_rest_route('xvuelos/v1', '/session/', [
     'methods'  => WP_REST_Server::READABLE,
     'callback' => 'xvuelos_rest_sessionid',
+  ]);
+
+  register_rest_route('xvuelos/v1', '/poll/', [
+    'methods'  => WP_REST_Server::READABLE,
+    'callback' => 'xvuelos_rest_poll',
   ]);
 });
 
