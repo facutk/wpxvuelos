@@ -184,7 +184,7 @@ function xvuelos_get_place_suggestions($query) {
   $currency = $userinfo['currency'];
   $locale = $userinfo['locale'];
 
-  $url = "$SKYSCANNER_URL/autosuggest/v1.0/$market/$currency/$locale?query=$query&apiKey=$SKYSCANNER_API_KEY";
+  $url = "$SKYSCANNER_URL/autosuggest/v1.0/$market/$currency/$locale?query=$query&includeCities=false&includeCountries=false&apiKey=$SKYSCANNER_API_KEY";
   $get_data = wp_remote_get($url);
 
   $body = $get_data['body'];
@@ -198,7 +198,7 @@ function xvuelos_get_place_suggestions($query) {
     return [
       'value' => $value,
       'label' => $label,
-      'trait' => $trait,
+      'trait' => $trait
     ];
   }, $response['Places']);
 
