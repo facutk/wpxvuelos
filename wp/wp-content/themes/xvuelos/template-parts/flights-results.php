@@ -50,7 +50,10 @@ function humanizeDuration($duration) {
   $dt = new DateTime();
   $dt->add(new DateInterval('PT' . $duration . 'M'));
   $interval = $dt->diff(new DateTime());
-  return ltrim($interval->format('%Hhs %Im'), '0');
+  $interval_hours = $interval->days * 24 + $interval->h;
+  $interval_minutes = $interval->format('%I');
+
+  return ltrim($interval_hours . 'hs '.$interval_minutes . 'm', '0');
 }
 
 function getDateDiffInDays($departure, $arrival) {
@@ -143,7 +146,7 @@ function getDateDiffInDays($departure, $arrival) {
                         <div class="row">
                           <div class="col text-truncate">
                             <div class="text-monospace">
-                              <? echo date_create($departure)->format("h:m"); ?>
+                              <? echo date_create($departure)->format("H:i"); ?>
                             </div>
 
                             <div>
@@ -182,7 +185,7 @@ function getDateDiffInDays($departure, $arrival) {
                           </div>
                           <div class="col text-truncate">
                             <div class="text-monospace">
-                              <? echo date_create($departure)->format("h:m"); ?>
+                              <? echo date_create($arrival)->format("H:i"); ?>
                               <small class="text-muted <? echo $dateDiffInDays === 0 ? 'invisible': '' ;?>">
                                 +<? echo $dateDiffInDays; ?>
                               </small>
