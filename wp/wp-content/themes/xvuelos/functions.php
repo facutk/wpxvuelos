@@ -292,8 +292,11 @@ function xvuelos_poll($sid, $pageIndex, $pageSize) {
 
   $body = $response["body"];
   $payload = json_decode($body, true);
+  $status = $payload["Status"];
   
-  return $payload;
+  return [
+    "Status" => $status
+  ];
 }
 
 function xvuelos_rest_poll(WP_REST_Request $request) {
