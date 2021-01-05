@@ -38,12 +38,23 @@
       $imageUrl = "";
       if ($images) {
         $imageIndex = rand(0 , sizeof($images));
-        $imageUrl = $images["photos"][$imageIndex]["photo_image_url"];
+        $image = $images["photos"][$imageIndex];
+        $imageUrl = $image["photo_image_url"];
+        $aspectRatio = floatval($image["photo_aspect_ratio"]);
+        if ($aspectRatio == 0) {
+          $aspectRatio = 1;
+        }
+        $imageStyle = "height:" . intval(200 / $aspectRatio) . "px";
       }
   ?>
     <div class="card my-3 masonry-item">
       <? if ($imageUrl) { ?>
-        <img class="card-img-top" src="<? echo $imageUrl . '?w=200'; ?>" alt="<? echo $destinationName; ?>">
+        <img
+          class="card-img-top"
+          src="<? echo $imageUrl . '?w=200'; ?>"
+          alt="<? echo $destinationName; ?>"
+          <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
+        />
       <? } ?>
       
       <div class="card-body">
