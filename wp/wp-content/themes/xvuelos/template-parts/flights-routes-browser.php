@@ -53,21 +53,23 @@
         $imageStyle = "height:" . intval(200 / $aspectRatio) . "px";
       }
   ?>
-    <div class="card my-3 masonry-item">
-      <? if ($imageUrl) { ?>
-        <img
-          class="card-img-top"
-          src="<? echo $imageUrl . '?w=200'; ?>"
-          alt="<? echo $destinationName; ?>"
-          <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
-        />
-      <? } ?>
-      
-      <div class="card-body">
-        <h5 class="card-title"><? echo $destinationName; ?></h5>
-        <p class="card-text">
-          <small><? echo $currency; ?></small> <? echo number_format($price); ?>
-        </p>
+    <div class="masonry-item">
+      <div class="card">
+        <? if ($imageUrl) { ?>
+          <img
+            class="card-img-top"
+            src="<? echo $imageUrl . '?w=200'; ?>"
+            alt="<? echo $destinationName; ?>"
+            <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
+          />
+        <? } ?>
+        
+        <div class="card-body">
+          <h5 class="card-title"><? echo $destinationName; ?></h5>
+          <p class="card-text">
+            <small><? echo $currency; ?></small> <? echo number_format($price); ?>
+          </p>
+        </div>
       </div>
     </div>
   <? } ?>
