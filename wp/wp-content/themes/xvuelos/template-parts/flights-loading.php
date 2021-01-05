@@ -166,7 +166,8 @@
         .then(r => r.json())
         .then((response) => {
           if (response.Status === "UpdatesComplete") {
-            window.location.href += "?sid=" + sid;
+            var redirectUrl = window.location.href.split('?')[0] + "?sid=" + sid;
+            window.location.href = redirectUrl;
           } else {
             poll(sid);
           }
