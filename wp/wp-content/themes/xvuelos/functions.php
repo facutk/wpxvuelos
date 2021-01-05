@@ -1,5 +1,6 @@
 <?php
 add_action('init', function(){
+  setlocale(LC_ALL,"es_ES"); // strftime
   add_rewrite_rule( 
     '^vuelos/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?', 
     //!IMPORTANT! THIS MUST BE IN SINGLE QUOTES!:
@@ -280,9 +281,11 @@ function xvuelos_create_sessionid(
     "apikey" => $SKYSCANNER_API_KEY
   ];
   $url = $SKYSCANNER_URL . '/pricing/v1.0';
+  
   $response = wp_remote_post($url, [
     'body' => $body
   ]);
+  // var_dump($response);
   $headers = $response["headers"];
   $location = $headers["location"];
   $sid = end(explode('/', $location));

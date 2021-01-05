@@ -5,7 +5,7 @@
 
   $Itineraries = $browseroutes["Itineraries"];
   $Carriers = $browseroutes["Carriers"];
-  // $legs = array_column($browseroutes["Legs"], NULL, 'Id');
+
   $quotes = array_column($browseroutes["Quotes"], NULL, 'QuoteId');
   $places = array_column($browseroutes["Places"], NULL, 'PlaceId');
   $carriers = array_column($browseroutes["Carriers"], NULL, 'Id');
@@ -19,10 +19,17 @@
   shuffle($RoutesWithPrice);
 
   $country_images_by_id = array_column(xvuelos_country_images_by_id(), NULL, 'Id');
+
+  function getDaysCount($departure, $arrival) {
+    return intval(date_diff(
+      date_create(substr($departure, 0, 10)),
+      date_create(substr($arrival, 0, 10))
+    )->format('%a'));
+  }
 ?>
 
 <div>
-  Ofertas saliendo de <? echo $originPlaceName; ?>
+  <h5>Ofertas saliendo de <? echo $originPlaceName; ?></h5>
   <div class="masonry">
   <?
     foreach($RoutesWithPrice as $route) {
@@ -30,9 +37,18 @@
       $destinationName = $destination["Name"];
       $destinationCode = $destination["SkyscannerCode"];
       $price = $route["Price"];
-      // $legs = [$quote["OutboundLeg"], $quote["InboundLeg"]];
-      // $minPrice = $quote["MinPrice"];
-      // $direct = $quote["Direct"];
+      $quoteId = $route["QuoteIds"][0];
+      $quote = $quotes[$quoteId];
+
+      $outboundLeg = $quote["OutboundLeg"];
+      
+      $origin = $places[$outboundLeg["OriginId"]]["SkyscannerCode"];
+      $destination = $places[$outboundLeg["DestinationId"]]["SkyscannerCode"];
+
+      $outboundDate = substr($outboundLeg["DepartureDate"], 0, 10);
+      $inboundDate = substr($quote["InboundLeg"]["DepartureDate"], 0, 10);
+
+      $nightsCount = getDaysCount($outboundDate, $inboundDate);
 
       $images = $country_images_by_id[$destinationCode];
       if (!$images) {
@@ -42,36 +58,47 @@
         $images = $country_images_by_id['default'];
       }
       $imageUrl = "";
-      if ($images) {
-        $imageIndex = rand(0 , sizeof($images["photos"]) - 1);
-        $image = $images["photos"][$imageIndex];
-        $imageUrl = $image["photo_image_url"];
-        $aspectRatio = floatval($image["photo_aspect_ratio"]);
-        if ($aspectRatio == 0) {
-          $aspectRatio = 1;
-        }
-        $imageStyle = "min-height:" . intval(200 / $aspectRatio) . "px";
+      
+      $imageIndex = rand(0 , sizeof($images["photos"]) - 1);
+      $image = $images["photos"][$imageIndex];
+      $imageUrl = $image["photo_image_url"];
+      $aspectRatio = floatval($image["photo_aspect_ratio"]);
+      if ($aspectRatio == 0) {
+        $aspectRatio = 1;
       }
+      $imageStyle = "min-height:" . intval(200 / $aspectRatio) . "px";
+
+      $url = "/vuelos/$origin/$destination/$outboundDate/$inboundDate";
+
+      if ($nightsCount < 30) {
   ?>
-    <div class="masonry-item">
-      <div class="card">
-        <? if ($imageUrl) { ?>
-          <img
-            class="card-img-top"
-            src="<? echo $imageUrl . '?w=200'; ?>"
-            alt="<? echo $destinationName; ?>"
-            <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
-          />
-        <? } ?>
+    <a class="masonry-item" href="<? echo $url; ?>" target="_blank">
+      <div class="card hover-shadow">
+        <img
+          class="card-img-top"
+          src="<? echo $imageUrl . '?w=200'; ?>"
+          alt="<? echo $destinationName; ?>"
+          <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
+        />
         
         <div class="card-body">
-          <h5 class="card-title"><? echo $destinationName; ?></h5>
-          <p class="card-text">
-            <small><? echo $currency; ?></small> <? echo number_format($price); ?>
-          </p>
+          <div class="card-text">
+            <h6 class="card-subtitle my-3 text-muted">
+              <? echo $destinationName; ?>
+            </h6>
+
+            <small class="text-dark">
+              <? echo ucfirst(strftime("%B", strtotime($outboundDate))); ?>. <? echo $nightsCount; ?> noches
+            </small>
+
+            <div class="text-right font-weight-bold color-accent text-nowrap">
+              <small><? echo $currency; ?> </small><? echo number_format($price); ?>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
-  <? } ?>
+    </a>
+  <? } } ?>
   </div>
 </div>

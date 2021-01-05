@@ -108,7 +108,7 @@ function stopsLabel($stops) {
         $deeplinkUrl = $Itinerary["PricingOptions"][0]["DeeplinkUrl"];
     ?>
 
-      <div class="card my-3">
+      <div class="card my-3 hover-shadow">
         <div class="card-body">
           <div class="row">
             <div class="col-lg-9">

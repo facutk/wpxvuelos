@@ -83,6 +83,32 @@ input[type="radio"] + label {
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
+  text-decoration: none;
+}
+
+.hover-shadow {
+  position: relative;
+}
+
+.hover-shadow::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Create the box shadow at expanded size. */
+  box-shadow: 0 12px 20px rgba(68,68,68,0.2);
+
+  /* Hidden by default. */
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.hover-shadow:hover::before {
+  /* Show the pseudo-element on hover. */
+  opacity: 1;
 }
 
 @media (min-width: 1024px) {
