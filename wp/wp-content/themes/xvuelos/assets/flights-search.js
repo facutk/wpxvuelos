@@ -91,12 +91,17 @@
     $("#flights-search-form").on('submit', function(e){
       e.preventDefault();
       handleSearch(false);
-   });
-   $("select[name='sortby']").on('change', handleSearch);
-   $("input[name='stops']").on('change', handleFilterChange);
-   $("input[name='carriers']").on('change', handleFilterChange);
+    });
 
-   $("input[name='more-results']").on('click', handleMoreResults);
+    $("select[name='sortby']").on('change', handleSearch);
+    $("input[name='stops']").on('change', handleFilterChange);
+    $("input[name='carriers']").on('change', handleFilterChange);
+
+    $("input[name='more-results']").on('click', handleMoreResults);
    
+    $("#flights-search-departure-date").on('change', function () {
+      $("#flights-search-return-date").attr("min", $("#flights-search-departure-date").val());
+    })
+
   });
 })(jQuery);
