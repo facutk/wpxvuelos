@@ -53,7 +53,14 @@ function humanizeDuration($duration) {
   $interval_hours = $interval->days * 24 + $interval->h;
   $interval_minutes = $interval->format('%I');
 
-  return ltrim($interval_hours . 'hs '.$interval_minutes . 'm', '0');
+  $humanDuration = $interval_minutes . 'm';
+  if ($interval_hours > 0) {
+    $humanDuration = $interval_hours . 'hs ' . $humanDuration;
+  }
+
+  $humanDuration = ltrim($humanDuration, '0');
+
+  return $humanDuration;
 }
 
 function getDateDiffInDays($departure, $arrival) {
@@ -61,6 +68,12 @@ function getDateDiffInDays($departure, $arrival) {
     date_create(substr($departure, 0, 10)),
     date_create(substr($arrival, 0, 10))
   )->format('%a'));
+}
+
+function stopsLabel($stops) {
+  if ($stops == 0) return 'Directo';
+  if ($stops == 1) return '1 escala';
+  return $stops . ' escalas';
 }
 ?>
 
@@ -169,12 +182,12 @@ function getDateDiffInDays($departure, $arrival) {
                             </div>
                             <div>
                               <small class="d-inline-block">
-                                <? echo $stops; ?> escala<? if ($stops !== 1) echo 's'; ?>
+                                <? echo stopsLabel($stops); ?>
                                 <div class="mt-2">
                                   <div class="border-bottom border-dark"></div>
 
                                   <div class="d-flex justify-content-around">
-                                    <? foreach(range(1, $stops) as $n) { ?>
+                                    <? for($i = 0; $i < $stops; $i++) { ?>
                                       <span class="stop-indicator"></span>
                                     <? } ?>
                                   </div>
