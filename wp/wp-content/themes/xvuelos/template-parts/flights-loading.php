@@ -7,7 +7,7 @@
  * @since Twenty Twenty 1.0
  */
 ?>
-
+<div id="rainbow-progress-bar"></div>
 <div class="row">
   <div class="col-md-3 mb-4">
     <details id="filter-details">
