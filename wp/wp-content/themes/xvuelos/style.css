@@ -49,14 +49,6 @@ input[type="radio"] + label {
   } 
 }
 
-.search-submit:disabled {
-  background-color: #d6d7df;
-  cursor: auto;
-}
-.search-submit:disabled:hover {
-  text-decoration: none;
-}
-
 /* rainbow progress bar */
 @keyframes rainbow { 
   0% { background-position: 0% 100%; }
