@@ -50,14 +50,14 @@
         if ($aspectRatio == 0) {
           $aspectRatio = 1;
         }
-        $imageStyle = "height:" . intval(200 / $aspectRatio) . "px";
+        $imageStyle = "min-height:" . intval(200 / $aspectRatio) . "px";
       }
   ?>
     <div class="masonry-item">
       <div class="card">
         <? if ($imageUrl) { ?>
           <img
-            class="card-img-top"
+            class="card-img-top img-fluid"
             src="<? echo $imageUrl . '?w=200'; ?>"
             alt="<? echo $destinationName; ?>"
             <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
