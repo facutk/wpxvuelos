@@ -72,3 +72,15 @@ input[type="radio"] + label {
 
   animation: rainbow 9s ease infinite;
 }
+
+.masonry {
+  margin: 1.5em auto;
+  column-gap: 1.5em;
+  column-count: 4;
+}
+
+.masonry-item { /* Masonry bricks or child elements */
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+}

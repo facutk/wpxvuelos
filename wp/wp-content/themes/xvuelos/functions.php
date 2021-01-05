@@ -84,6 +84,10 @@ function xvuelos_get_flights($sid, $offset, $pageSize, $selectedSortby, $selecte
   // return $mockSession;
 }
 
+function xvuelos_country_images_by_id() {
+  return json_decode(file_get_contents(get_stylesheet_directory() . '/assets/country-images-by-id/images-by-country-id.json'), true);
+}
+
 /* Adds scripts */
 add_action( 'after_setup_theme', 'xvuelos_theme_setup' );
 

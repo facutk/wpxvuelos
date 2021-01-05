@@ -14,28 +14,45 @@
   $originPlaceName = $places[$originId]["Name"];
   $RoutesWithPrice = array_filter($Routes, function($route) {
     return $route["Price"] && $route["QuoteIds"];
-  })
+  });
+
+  shuffle($RoutesWithPrice);
+
+  $country_images_by_id = array_column(xvuelos_country_images_by_id(), NULL, 'Id');
 ?>
 
 <div>
   Ofertas saliendo de <? echo $originPlaceName; ?>
+  <div class="masonry">
   <?
     foreach($RoutesWithPrice as $route) {
       $destination = $places[$route["DestinationId"]];
       $destinationName = $destination["Name"];
+      $destinationCode = $destination["SkyscannerCode"];
       $price = $route["Price"];
       // $legs = [$quote["OutboundLeg"], $quote["InboundLeg"]];
       // $minPrice = $quote["MinPrice"];
       // $direct = $quote["Direct"];
 
+      $images = $country_images_by_id[$destinationCode];
+      $imageUrl = "";
+      if ($images) {
+        $imageIndex = rand(0 , sizeof($images));
+        $imageUrl = $images["photos"][$imageIndex]["photo_image_url"];
+      }
   ?>
-    <div class="card my-3">
+    <div class="card my-3 masonry-item">
+      <? if ($imageUrl) { ?>
+        <img class="card-img-top" src="<? echo $imageUrl . '?w=200'; ?>" alt="<? echo $destinationName; ?>">
+      <? } ?>
+      
       <div class="card-body">
-        <div>
-          <? echo $destinationName; ?> por <small><? echo $currency; ?></small> <? echo number_format($price); ?>
-        </div>
-        
+        <h5 class="card-title"><? echo $destinationName; ?></h5>
+        <p class="card-text">
+          <small><? echo $currency; ?></small> <? echo number_format($price); ?>
+        </p>
       </div>
     </div>
   <? } ?>
+  </div>
 </div>
