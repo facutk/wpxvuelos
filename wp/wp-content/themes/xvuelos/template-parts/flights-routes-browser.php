@@ -35,9 +35,15 @@
       // $direct = $quote["Direct"];
 
       $images = $country_images_by_id[$destinationCode];
+      if (!$images) {
+        $images = $country_images_by_id['default'];
+      }
+      if(sizeof($images["photos"]) == 0) {
+        $images = $country_images_by_id['default'];
+      }
       $imageUrl = "";
       if ($images) {
-        $imageIndex = rand(0 , sizeof($images));
+        $imageIndex = rand(0 , sizeof($images["photos"]) - 1);
         $image = $images["photos"][$imageIndex];
         $imageUrl = $image["photo_image_url"];
         $aspectRatio = floatval($image["photo_aspect_ratio"]);
