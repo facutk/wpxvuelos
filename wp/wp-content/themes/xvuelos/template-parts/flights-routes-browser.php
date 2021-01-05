@@ -57,7 +57,7 @@
       <div class="card">
         <? if ($imageUrl) { ?>
           <img
-            class="card-img-top img-fluid"
+            class="card-img-top"
             src="<? echo $imageUrl . '?w=200'; ?>"
             alt="<? echo $destinationName; ?>"
             <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
