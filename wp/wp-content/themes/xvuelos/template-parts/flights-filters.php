@@ -49,7 +49,10 @@
     <legend>Aerolíneas</legend>
     <?
       $carriers = $args['carriers'];
-      $selectedCarriers = explode(";", get_query_var("carriers"));
+      $selectedCarriers = [];
+      if (get_query_var("carriers")) {
+        $selectedCarriers = explode(";", get_query_var("carriers"));
+      }
 
       foreach ($carriers as $carrier) {
         $name = $carrier["Name"];
