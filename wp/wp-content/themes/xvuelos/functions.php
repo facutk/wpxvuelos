@@ -73,17 +73,15 @@ function add_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'add_styles' );
 
-function xvuelos_get_flights($sid) {
+function xvuelos_get_flights($sid, $offset, $pageSize, $selectedSortby, $selectedStops, $selectedCarriers) {
   if ($sid) {
-    $pageIndex = 0;
-    $pageSize = 3;
-    $results = xvuelos_poll($sid, $pageIndex, $pageSize);
+    $results = xvuelos_poll($sid, $offset, $pageSize, $selectedSortby, $selectedStops, $selectedCarriers);
     return $results;
   }
   
-  $mockSession = json_decode(file_get_contents(get_stylesheet_directory() . '/mockSession.json'), true);
+  // $mockSession = json_decode(file_get_contents(get_stylesheet_directory() . '/mockSession.json'), true);
 
-  return $mockSession;
+  // return $mockSession;
 }
 
 /* Adds scripts */
@@ -288,11 +286,21 @@ function xvuelos_rest_sessionid(WP_REST_Request $request) {
   return $response;
 }
 
-function xvuelos_poll($sid, $pageIndex, $pageSize) {
+function xvuelos_poll($sid, $pageIndex, $pageSize, $sortby, $stops, $includeCarriers) {
   $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
   $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
 
   $url = "$SKYSCANNER_URL/pricing/uk1/v1.0/$sid?apiKey=$SKYSCANNER_API_KEY&pageIndex=$pageIndex&pageSize=$pageSize";
+  if ($sortby) {
+    $url = $url . "&sortType=$sortby&sortOrder=asc";
+  }
+  if ($stops) {
+    $url = $url . "&stops=$stops";
+  }
+  if ($includeCarriers) {
+    $url = $url . "&includeCarriers=$includeCarriers";
+  }
+
   $response = wp_remote_get($url, [
     "timeout" => 60
   ]);
@@ -308,7 +316,10 @@ function xvuelos_rest_poll(WP_REST_Request $request) {
   $sid = $request->get_param('sid');
   $pageIndex = 0; // polling should always be at page 0
   $pageSize = 1; // we don't need a huge payload just to know if updates are complete
-  $results = xvuelos_poll($sid, $pageIndex, $pageSize);
+  $sortby = ""; // no sorting
+  $stops = ""; // no stops defined
+  $includeCarriers = ""; // no defined carriers filters
+  $results = xvuelos_poll($sid, $pageIndex, $pageSize, $sortby, $stops, $includeCarriers);
   $miniResults = [
     "Status" => $results["Status"]
   ]; // send only whats needed

@@ -33,13 +33,14 @@
       }); // TODO: find out if there is any way to retrieve popular destinations
 
 
-    function handleSearch() {
+    function handleSearch(refineSearch = true) {
       var origin = jQuery("#flights-search-origin").val();
       var destination = jQuery("#flights-search-destination").val();
       var departureDate = jQuery("#flights-search-departure-date").val();
       var returnDate = jQuery("#flights-search-return-date").val();
       var sortby = jQuery("select[name='sortby']").val();
       var stops = jQuery("input[name='stops']:checked").val();
+      var sid = jQuery("input[name='sid']").val();
       var offset = jQuery("input[name='offset']").val();
       if (offset === "0") {
         offset = "";
@@ -48,7 +49,7 @@
       var carriers = [];
       jQuery("input[name='carriers']:checked").each(function () {
         var value = jQuery(this).val();
-        carriers.push(parseInt(value));
+        carriers.push(value);
       });
 
       carriers = carriers.join(';')
@@ -59,7 +60,7 @@
         + departureDate + "/"
         + returnDate + "/";
 
-      var queryParams = { offset, sortby, stops, carriers };
+      var queryParams = { offset, sortby, stops, carriers, sid };
       var queryString = Object.keys(queryParams).reduce(function (acc, key){
         if (queryParams[key]) {
           if (acc) {
@@ -70,12 +71,11 @@
         return acc;
       }, "");
 
-      if (queryString) {
+      if (queryString && refineSearch) {
         url += '?' + queryString;
       }
 
-      console.log(url);
-      window.location.href = url; //'/vuelos/EZE/MIA/2020-10-13/2020-10-28';
+      window.location.href = url;
     };
 
     function handleMoreResults() {
@@ -90,7 +90,7 @@
 
     $("#flights-search-form").on('submit', function(e){
       e.preventDefault();
-      handleSearch();
+      handleSearch(false);
    });
    $("select[name='sortby']").on('change', handleSearch);
    $("input[name='stops']").on('change', handleFilterChange);

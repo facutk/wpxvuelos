@@ -56,18 +56,18 @@
 
       foreach ($carriers as $carrier) {
         $name = $carrier["Name"];
-        $id = $carrier["Id"];
-        $checked = in_array($id, $selectedCarriers);
+        $code = $carrier["Code"];
+        $checked = in_array($code, $selectedCarriers);
     ?>
       <div>
         <input
           type="checkbox"
-          id="carriers-<? echo $id; ?>"
+          id="carriers-<? echo $code; ?>"
           name="carriers"
-          value="<? echo $id; ?>"
+          value="<? echo $code; ?>"
           <? if ($checked) echo 'checked'; ?>
         />
-        <label for="carriers-<? echo $id; ?>">
+        <label for="carriers-<? echo $code; ?>">
           <? echo $name; ?>
         </label>
       </div>

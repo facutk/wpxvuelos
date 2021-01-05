@@ -14,25 +14,24 @@ $inboundDate = get_query_var('inboundDate');
 $selectedSortby = get_query_var('sortby');
 $selectedStops = get_query_var('stops');
 $selectedCarriers = get_query_var('carriers');
+$selectedSortby = get_query_var("sortby");
 $offset = get_query_var('offset');
 $sid = get_query_var('sid');
 if (!$offset) {
   $offset = 0;
 }
-$pagesize = 3;
+$pagesize = 10;
 
 $formComplete = strlen($origin) > 0 && strlen($destination) > 0 && strlen($outboundDate) > 0 && strlen($inboundDate) > 0;
-$mockSession = xvuelos_get_flights($sid);
+$session = xvuelos_get_flights($sid, $offset, $pagesize, $selectedSortby, $selectedStops, $selectedCarriers);
 
-$currency = $mockSession["Query"]["Currency"];
+$currency = $session["Query"]["Currency"];
 
-$Itineraries = $mockSession["Itineraries"];
-$ItinerariesPaginated = array_slice($Itineraries, $offset * $pagesize, $pagesize);
-$Carriers = $mockSession["Carriers"];
-
-$legs = array_column($mockSession["Legs"], NULL, 'Id');
-$places = array_column($mockSession["Places"], NULL, 'Id');
-$carriers = array_column($mockSession["Carriers"], NULL, 'Id');
+$Itineraries = $session["Itineraries"];
+$Carriers = $session["Carriers"];
+$legs = array_column($session["Legs"], NULL, 'Id');
+$places = array_column($session["Places"], NULL, 'Id');
+$carriers = array_column($session["Carriers"], NULL, 'Id');
 
 $directionalityLabels = [
   "Outbound" => "Ida",
@@ -100,7 +99,7 @@ function stopsLabel($stops) {
     <? get_template_part( 'template-parts/flights-sortby' ); ?>
 
     <?
-      foreach ($ItinerariesPaginated as $Itinerary) {
+      foreach ($Itineraries as $Itinerary) {
         $itineraryLegs = [
           $Itinerary["OutboundLegId"],
           $Itinerary["InboundLegId"]
@@ -257,8 +256,7 @@ function stopsLabel($stops) {
         null,
         [
           'offset' => $offset,
-          'total' => sizeof($Itineraries),
-          'pagesize' => $pagesize
+          'sid' => $sid
         ]
       );
     ?>
