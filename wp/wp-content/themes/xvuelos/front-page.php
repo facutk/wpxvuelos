@@ -13,6 +13,7 @@
   }
 	?>
 
+<?php get_template_part( 'template-parts/flights-routes-browser' ); ?>
 </div>
 
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>

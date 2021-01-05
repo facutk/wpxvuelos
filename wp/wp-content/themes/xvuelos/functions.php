@@ -172,6 +172,26 @@ function xvuelos_rest_get_userinfo(WP_REST_Request $request) {
   return $response;
 }
 
+function xvuelos_get_browseroutes() {
+  $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
+  $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
+
+  global $userinfo;
+
+  $market = $userinfo['market'];
+  $currency = $userinfo['currency'];
+  $locale = $userinfo['locale'];
+
+  $url = "$SKYSCANNER_URL/browseroutes/v1.0/$market/$currency/$locale/$market/anywhere/anytime/anytime?apikey=$SKYSCANNER_API_KEY";
+
+  $get_data = wp_remote_get($url);
+
+  $body = $get_data['body'];
+  $response = json_decode($body, true);
+
+  return $response;
+}
+
 function xvuelos_get_place_suggestions($query) {
   $SKYSCANNER_URL = $_ENV["SKYSCANNER_URL"];
   $SKYSCANNER_API_KEY = $_ENV["SKYSCANNER_API_KEY"];
@@ -307,7 +327,6 @@ function xvuelos_poll($sid, $pageIndex, $pageSize, $sortby, $stops, $includeCarr
 
   $body = $response["body"];
   $payload = json_decode($body, true);
-  $status = $payload["Status"];
   
   return $payload;
 }
