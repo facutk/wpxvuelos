@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:7eeeed18-f25f-4e07-a7e2-29d5f1ee77b9
 title: Panamá
 subtitle: Clima y cosas para hacer
 date: 2020-04-05

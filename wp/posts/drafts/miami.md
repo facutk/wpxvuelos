@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:0f9f6138-50ff-4c82-b267-8eec89473fbd
 title: Miami Beach, Florida
 subtitle: Clima y cosas para hacer
 date: 2020-01-18

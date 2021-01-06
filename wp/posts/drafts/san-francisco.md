@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:4073f675-9602-47ac-ae16-4f9395333381
 title: San Francisco
 subtitle: Clima y cosas para hacer
 date: 2020-03-15

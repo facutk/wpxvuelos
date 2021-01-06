@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:27596447-f0d4-4170-b0d3-78815e2bd1db
 title: Moscú
 subtitle: Clima y cosas para hacer
 date: 2020-05-02

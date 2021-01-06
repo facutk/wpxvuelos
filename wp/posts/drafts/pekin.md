@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:ef4ebbbd-5a2e-465d-9813-f9e375b81d7e
 title: Pekín
 subtitle: Clima y cosas para hacer
 date: 2020-05-03

@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:b40616f6-ff28-4bd1-ac14-79c2f4e57450
 title:  New York
 subtitle: Clima y cosas para hacer
 date: 2020-01-15

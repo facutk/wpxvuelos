@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:f4d46c2c-7c16-460f-8c67-24c3df178966
 title: Santiago de Chile
 subtitle: Clima y cosas para hacer
 date: 2020-04-04

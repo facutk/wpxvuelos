@@ -1,4 +1,5 @@
 ---
+ID: urn:uuid:827c2dee-28a4-4a8a-9378-6caaff0719eb
 title: Singapur
 subtitle: Clima y cosas para hacer
 date: 2020-05-05
