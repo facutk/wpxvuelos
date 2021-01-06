@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:b40616f6-ff28-4bd1-ac14-79c2f4e57450
-title:  New York
-subtitle: Clima y cosas para hacer
-date: 2020-01-15
-tags: ["new york", "estados unidos"]
-bigimg: [{src: "./post/2020-01-15-new-york/new-york-1.jpg"}, {src: "./post/2020-01-15-new-york/new-york-2.jpg"}, {src: "./post/2020-01-15-new-york/new-york-3.jpg"}]
+Title: New York
+Slug: new-york
+Category: Destinos
+Tags:
+  - new york
+  - estados unidos
+Excerpt: Clima y cosas para hacer en New York
+Author: xvuelos
+Date: 2020-01-15 00:00 PST
+Updated: 2020-01-15 00:00 PST
+Draft: true
 ---
 
 ## Clima en New York

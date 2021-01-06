@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:27596447-f0d4-4170-b0d3-78815e2bd1db
-title: Moscú
-subtitle: Clima y cosas para hacer
-date: 2020-05-02
-tags: ["moscu", "rusia"]
-bigimg: [{src: "./post/2020-05-02-moscu/moscu-1.jpg"}, {src: "./post/2020-05-02-moscu/moscu-2.jpg"}, {src: "./post/2020-05-02-moscu/moscu-3.jpg"}]
+Title: Moscú
+Slug: moscu
+Category: Destinos
+Tags:
+  - moscu
+  - rusia
+Excerpt: Clima y cosas para hacer en Moscú
+Author: xvuelos
+Date: 2020-05-02 00:00 PST
+Updated: 2020-05-02 00:00 PST
+Draft: true
 ---
  
 ## Clima en Moscú

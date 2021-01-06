@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:bfe471a2-5ef4-4509-891b-812efd9d623d
-title: Lisboa
-subtitle: Clima y cosas para hacer
-date: 2020-05-01
-tags: ["lisboa", "portugal"]
-bigimg: [{src: "./post/2020-05-01-lisboa/lisboa-1.jpg"}, {src: "./post/2020-05-01-lisboa/lisboa-2.jpg"}, {src: "./post/2020-05-01-lisboa/lisboa-3.jpg"}]
+Title: Lisboa
+Slug: lisboa
+Category: Destinos
+Tags:
+  - lisboa
+  - portugal
+Excerpt: Clima y cosas para hacer en Lisboa
+Author: xvuelos
+Date: 2020-05-01 00:00 PST
+Updated: 2020-05-01 00:00 PST
+Draft: true
 ---
  
 ## Clima en Lisboa

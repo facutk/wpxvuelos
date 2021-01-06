@@ -1,10 +1,18 @@
 ---
 ID: urn:uuid:0f9f6138-50ff-4c82-b267-8eec89473fbd
-title: Miami Beach, Florida
-subtitle: Clima y cosas para hacer
-date: 2020-01-18
-tags: ["miami", "beach", "florida", "estados unidos"]
-bigimg: [{src: "./post/2020-01-18-miami/miami-1.jpg"}, {src: "./post/2020-01-18-miami/miami-2.jpg"}, {src: "./post/2020-01-18-miami/miami-3.jpg"}]
+Title: Miami Beach
+Slug: 
+Category: Destinos
+Tags:
+  - miami
+  - beach
+  - florida
+  - estados unidos
+Excerpt: Clima y cosas para hacer en Miami Beach
+Author: xvuelos
+Date: 2020-01-18 00:00 PST
+Updated: 2020-01-18 00:00 PST
+Draft: true
 ---
 
 ## Clima en Miami

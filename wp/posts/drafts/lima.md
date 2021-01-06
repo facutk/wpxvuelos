@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:eb3e217d-10c0-4567-86f7-1137848c5265
-title: Lima
-subtitle: Clima y cosas para hacer
-date: 2020-03-15
-tags: ["lima", "peru"]
-bigimg: [{src: "./post/2020-03-22-lima/lima-1.jpg"}, {src: "./post/2020-03-22-lima/lima-2.jpg"}, {src: "./post/2020-03-22-lima/lima-3.jpg"}]
+Title: Lima
+Slug: lima
+Category: Destinos
+Tags:
+  - lima
+  - peru
+Excerpt: Clima y cosas para hacer en Lima
+Author: xvuelos
+Date: 2020-03-15 00:00 PST
+Updated: 2020-03-15 00:00 PST
+Draft: true
 ---
  
 ## Clima en Lima

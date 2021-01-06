@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:129bcccc-b0b2-416d-a6ea-ce0e6be01f70
-title: Rio de Janeiro
-subtitle: Clima y cosas para hacer
-date: 2020-03-19
-tags: ["Rio de Janeiro", "Brasil"]
-bigimg: [{src: "./post/2020-03-19-rio-de-janeiro/rio-de-janeiro-1.jpg"}, {src: "./post/2020-03-19-rio-de-janeiro/rio-de-janeiro-2.jpg"}, {src: "./post/2020-03-19-rio-de-janeiro/rio-de-janeiro-3.jpg"}]
+Title: Rio de Janeiro
+Slug: rio-de-janeiro
+Category: Destinos
+Tags:
+  - rio de janeiro
+  - brasil
+Excerpt: Clima y cosas para hacer en Rio de Janeiro
+Author: xvuelos
+Date: 2020-03-19 00:00 PST
+Updated: 2020-03-19 00:00 PST
+Draft: true
 ---
  
 ## Clima en Rio de Janeiro

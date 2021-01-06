@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:4073f675-9602-47ac-ae16-4f9395333381
-title: San Francisco
-subtitle: Clima y cosas para hacer
-date: 2020-03-15
-tags: ["san francisco", "estados unidos"]
-bigimg: [{src: "./post/2020-03-18-san-francisco/san-francisco-1.jpg"}, {src: "./post/2020-03-18-san-francisco/san-francisco-2.jpg"}, {src: "./post/2020-03-18-san-francisco/san-francisco-3.jpg"}]
+Title: San Francisco
+Slug: san-francisco
+Category: Destinos
+Tags:
+  - san francisco
+  - estados unidos
+Excerpt: Clima y cosas para hacer en San Francisco
+Author: xvuelos
+Date: 2020-03-15 00:00 PST
+Updated: 2020-03-15 00:00 PST
+Draft: true
 ---
  
 ## Clima en San Francisco

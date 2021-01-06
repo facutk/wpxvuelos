@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:f4d46c2c-7c16-460f-8c67-24c3df178966
-title: Santiago de Chile
-subtitle: Clima y cosas para hacer
-date: 2020-04-04
-tags: ["santiago de chile", "chile"]
-bigimg: [{src: "./post/2020-04-04-santiago-de-chile/santiago-de-chile-1.jpg"}, {src: "./post/2020-04-04-santiago-de-chile/santiago-de-chile-2.jpg"}, {src: "./post/2020-04-04-santiago-de-chile/santiago-de-chile-3.jpg"}]
+Title: Santiago de Chile
+Slug: santiago-de-chile
+Category: Destinos
+Tags:
+  - chile
+  - santiago de chile
+Excerpt: Clima y cosas para hacer en Santiago de Chile
+Author: xvuelos
+Date: 2020-04-04 00:00 PST
+Updated: 2020-04-04 00:00 PST
+Draft: true
 ---
  
 ## Clima en Santiago de Chile

@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:8d2cf3f1-38ad-4f02-af80-998d616924eb
-title: Toronto
-subtitle: Clima y cosas para hacer
-date: 2020-03-17
-tags: ["toronto", "canada"]
-bigimg: [{src: "./post/2020-03-17-toronto/toronto-1.jpg"}, {src: "./post/2020-03-17-toronto/toronto-2.jpg"}, {src: "./post/2020-03-17-toronto/toronto-3.jpg"}]
+Title: Toronto
+Slug: toronto
+Category: Destinos
+Tags:
+  - toronto
+  - canada
+Excerpt: Clima y cosas para hacer en Toronto
+Author: xvuelos
+Date: 2020-03-17 00:00 PST
+Updated: 2020-03-17 00:00 PST
+Draft: true
 ---
  
 ## Clima en Toronto

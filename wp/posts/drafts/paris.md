@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:5097f07a-106a-4ad2-89fb-189866aec168
-title: Paris
-subtitle: Clima y cosas para hacer
-date: 2020-03-15
-tags: ["paris", francia"]
-bigimg: [{src: "./post/2020-03-20-paris/paris-1.jpg"}, {src: "./post/2020-03-20-paris/paris-2.jpg"}, {src: "./post/2020-03-20-paris/paris-3.jpg"}]
+Title: Paris
+Slug: paris
+Category: Destinos
+Tags:
+  - paris
+  - francia
+Excerpt: Clima y cosas para hacer en Paris
+Author: xvuelos
+Date: 2020-03-15 00:00 PST
+Updated: 2020-03-15 00:00 PST
+Draft: true
 ---
  
 ## Clima en París

@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:9e140f5e-70ba-4c19-9280-8966fe683d8c
-title: Washington 
-subtitle: Clima y cosas para hacer
-date: 2020-04-07
-tags: ["washington", "estados unidos"]
-bigimg: [{src: "./post/2020-04-07-washington/washington-1.jpg"}, {src: "./post/2020-04-07-washington/washington-2.jpg"}, {src: "./post/2020-04-07-washington/washington-3.jpg"}]
+Title: Washington
+Slug: washington
+Category: Destinos
+Tags:
+  - washington
+  - estados unidos
+Excerpt: Clima y cosas para hacer en 
+Author: xvuelos
+Date: 2020-04-07 00:00 PST
+Updated: 2020-04-07 00:00 PST
+Draft: true
 ---
 ## Clima en Washington
 Verano: entre 19°C y 30°C

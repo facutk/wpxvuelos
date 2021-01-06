@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:b8d791e5-c973-4b17-ad01-58759892659b
-title: Orlando
-subtitle: Clima y cosas para hacer
-date: 2020-03-18
-tags: ["orlando", "estados unidos"]
-bigimg: [{src: "./post/2020-03-18-orlando/orlando-1.jpg"}, {src: "./post/2020-03-18-orlando/orlando-2.jpg"}, {src: "./post/2020-03-18-orlando/orlando-3.jpg"}]
+Title: Orlando
+Slug: orlando
+Category: Destinos
+Tags:
+  - orlando
+  - estados unidos
+Excerpt: Clima y cosas para hacer en Orlando
+Author: xvuelos
+Date: 2020-03-18 00:00 PST
+Updated: 2020-03-18 00:00 PST
+Draft: true
 ---
 
 ## Clima en Orlando

@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:814b7224-13b8-4e1e-97b3-72616a7eb579
-title: Las Vegas
-subtitle: Clima y cosas para hacer
-date: 2020-03-15
-tags: ["las vegas", "estados unidos"]
-bigimg: [{src: "./post/2020-03-23-las-vegas/las-vegas-1.jpg"}, {src: "./post/2020-03-23-las-vegas/las-vegas-2.jpg"}, {src: "./post/2020-03-23-las-vegas/las-vegas-3.jpg"}]
+Title: Las Vegas
+Slug: las-vegas
+Category: Destinos
+Tags:
+  - las vegas
+  - estados unidos
+Excerpt: Clima y cosas para hacer en Las Vegas
+Author: xvuelos
+Date: 2020-03-15 00:00 PST
+Updated: 2020-03-15 00:00 PST
+Draft: true
 ---
  
 ## Clima en Las Vegas

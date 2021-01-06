@@ -1,10 +1,15 @@
 ---
 ID: urn:uuid:7eeeed18-f25f-4e07-a7e2-29d5f1ee77b9
-title: Panamá
-subtitle: Clima y cosas para hacer
-date: 2020-04-05
-tags: ["panama", "panama"]
-bigimg: [{src: "./post/2020-04-05-panama/panama-1.jpg"}, {src: "./post/2020-04-05-panama/panama-2.jpg"}, {src: "./post/2020-04-05-panama/panama-3.jpg"}]
+Title: Panamá
+Slug: panama
+Category: Destinos
+Tags:
+  - panama
+Excerpt: Clima y cosas para hacer en Panamá
+Author: xvuelos
+Date: 2020-04-05 00:00 PST
+Updated: 2020-04-05 00:00 PST
+Draft: true
 ---
  
 ## Clima en Panamá

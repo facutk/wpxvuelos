@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:71b01b84-7910-4c38-ae1e-b83d1067da64
-title: San Pablo
-subtitle: Clima y cosas para hacer
-date: 2020-04-03
-tags: ["San Pablo", "Brasil"]
-bigimg: [{src: "./post/2020-04-03-san-pablo/san-pablo-1.jpg"}, {src: "./post/2020-04-03-san-pablo/san-pablo-2.jpg"}, {src: "./post/2020-04-03-san-pablo/san-pablo-3.jpg"}]
+Title: San Pablo
+Slug: pan-pablo
+Category: Destinos
+Tags:
+  - san pablo
+  - brasil
+Excerpt: Clima y cosas para hacer en San Pablo
+Author: xvuelos
+Date: 2020-04-03 00:00 PST
+Updated: 2020-04-03 00:00 PST
+Draft: true
 ---
  
 ## Clima en San Pablo

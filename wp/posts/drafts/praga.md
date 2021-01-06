@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:9104c0e5-f0b4-43bf-a954-c8c1c4a0b145
-title: Praga
-subtitle: Clima y cosas para hacer
-date: 2020-05-04
-tags: ["praga", "republica checa"]
-bigimg: [{src: "./post/2020-05-04-praga/praga-1.jpg"}, {src: "./post/2020-05-04-praga/praga-2.jpg"}, {src: "./post/2020-05-04-praga/praga-3.jpg"}]
+Title: Praga
+Slug: praga
+Category: Destinos
+Tags:
+  - praga
+  - republica checa
+Excerpt: Clima y cosas para hacer en Praga
+Author: xvuelos
+Date: 2020-05-04 00:00 PST
+Updated: 2020-05-04 00:00 PST
+Draft: true
 ---
  
 ## Clima en Praga

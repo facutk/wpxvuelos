@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:827c2dee-28a4-4a8a-9378-6caaff0719eb
-title: Singapur
-subtitle: Clima y cosas para hacer
-date: 2020-05-05
-tags: ["singapur", "singapur"]
-bigimg: [{src: "./post/2020-05-05-singapur/singapur-1.jpg"}, {src: "./post/2020-05-05-singapur/singapur-2.jpg"}, {src: "./post/2020-05-05-singapur/singapur-3.jpg"}]
+Title: Singapur
+Slug: singapur
+Category: Destinos
+Tags:
+  - singapur
+  - asia
+Excerpt: Clima y cosas para hacer en Singapur
+Author: xvuelos
+Date: 2020-05-05 00:00 PST
+Updated: 2020-05-05 00:00 PST
+Draft: true
 ---
  
 ## Clima en Singapur

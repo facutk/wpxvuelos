@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:79ba45fe-c64e-4c7e-b8fe-feac41eb46f6
-title: Los Angeles
-subtitle: Clima y cosas para hacer
-date: 2020-03-15
-tags: ["los angeles", "estados unidos"]
-bigimg: [{src: "./post/2020-03-21-los-angeles/los-angeles-1.jpg"}, {src: "./post/2020-03-21-los-angeles/los-angeles-2.jpg"}, {src: "./post/2020-03-21-los-angeles/los-angeles-3.jpg"}]
+Title: Los Angeles
+Slug: los-angeles
+Category: Destinos
+Tags:
+  - los angeles
+  - estados unidos
+Excerpt: Clima y cosas para hacer en Los Angeles
+Author: xvuelos
+Date: 2020-03-15 00:00 PST
+Updated: 2020-03-15 00:00 PST
+Draft: true
 ---
  
 ## Clima en Los Ángeles

@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:ef4ebbbd-5a2e-465d-9813-f9e375b81d7e
-title: Pekín
-subtitle: Clima y cosas para hacer
-date: 2020-05-03
-tags: ["pekin", "China"]
-bigimg: [{src: "./post/2020-05-03-pekin/pekin-1.jpg"}, {src: "./post/2020-05-03-pekin/pekin-2.jpg"}, {src: "./post/2020-05-03-pekin/pekin-3.jpg"}]
+Title: Pekin
+Slug: pekin
+Category: Destinos
+Tags:
+  - pekin
+  - china
+Excerpt: Clima y cosas para hacer en Pekin
+Author: xvuelos
+Date: 2020-05-03 00:00 PST
+Updated: 2020-05-03 00:00 PST
+Draft: true
 ---
  
 ## Clima en Pekín

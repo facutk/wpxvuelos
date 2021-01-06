@@ -1,10 +1,16 @@
 ---
 ID: urn:uuid:4de0d4ea-0f68-4c95-92a5-47196c66b460
-title: Madrid
-subtitle: Clima y cosas para hacer
-date: 2020-01-19
-tags: ["madrid", "europa"]
-bigimg: [{src: "./post/2020-01-19-madrid/2020-01-19-madrid-01.jpg"}, {src: "./post/2020-01-19-madrid/2020-01-19-madrid-02.jpg"}, {src: "./post/2020-01-19-madrid/2020-01-19-madrid-03.jpg"}]
+Title: Madrid
+Slug: madrid
+Category: Destinos
+Tags:
+  - madrid
+  - europa
+Excerpt: Clima y cosas para hacer en Madrid
+Author: xvuelos
+Date: 2020-01-19 00:00 PST
+Updated: 2020-01-19 00:00 PST
+Draft: true
 ---
 
 ## Clima en Madrid
