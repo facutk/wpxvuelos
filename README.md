@@ -48,8 +48,27 @@ https://dashboard.heroku.com/apps/wpxvuelos
 - `wp cli`
 - `postmark`
 
-Instalation
+#### Installation
+
 ```sh
-brew install wp-cli
-php -d memory_limit=512M "$(which wp)" package install dirtsimple/postmark
+$ brew install wp-cli
+$ php -d memory_limit=512M "$(which wp)" package install dirtsimple/postmark
+```
+
+##### UUID gen
+
+```sh
+$ cd wpxvuelos/wp
+$ wp postmark uuid --path="${pwd}"
+```
+
+Outputs
+```sh
+> urn:uuid:e423ab0f-a668-4c48-bdff-2090e66bfca2
+```
+
+### Markdown to drafts
+
+```sh
+$ wp postmark tree posts/ --path="${pwd}" --debug=postmark
 ```
