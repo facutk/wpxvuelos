@@ -6,6 +6,7 @@ Category: Destinos
 Tags:
   - barcelona
   - europa
+Excerpt: Clima y cosas para hacer en Barcelona
 Author: xvuelos
 Date: 2020-03-15 00:00 PST
 Updated: 2020-03-15 00:00 PST
