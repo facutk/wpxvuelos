@@ -3,31 +3,67 @@ w=640
 ciudad de mexico
 
 ![El Zocalo](./2020-01-20-ciudad-de-mexico-zocalo-plaza-constitucion.jpg)
+https://images.unsplash.com/photo-1521738464775-0dc165a62fb4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80
+
 ![Coyoacán](./2020-01-20-ciudad-de-mexico-coyoacan.jpg)
+https://images.unsplash.com/photo-1591053442076-495738f08c12?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80
+
 ![Teotihuacan](./2020-01-20-mexico-teotihuacan.jpg)
+https://images.unsplash.com/photo-1557167850-09662821fc5a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+
 ![Museo Nacional de Antropología](./2020-01-20-ciudad-de-mexico-museo-nacional-de-antropologia.jpg)
+https://images.unsplash.com/photo-1601575039323-c90ee9e4a1d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80
+
 ![Templo Mayor](./2020-01-20-ciudad-de-mexico-templo-mayor.jpeg)
+https://images.unsplash.com/photo-1524158637050-36b68ca9a5ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80
+
 
 dubrovnik croatia
 
 ![Pile Gate](./dubrovnik-pile-gate.jpg)
+https://images.unsplash.com/photo-1561133929-94d78fe693be?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80
+
 ![Murallas de Dubrovnik](./dubrovnik-murallas.jpg)
+https://images.unsplash.com/photo-1598259218615-dd3cae32db5f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1104&q=80
+
 ![Monasterio Franciscano](./dubrovnik-monasterio-franciscano.jpg) 
+https://images.unsplash.com/photo-1600407228489-b9d3ed294c45?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80
+
 ![Stradun](./dubrovnik-stradun.jpg) 
+https://images.unsplash.com/photo-1515679523025-8d02a8dd20ed?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80
+
 ![Fuerte Lovrijenac](./dubrovnik-fuerte-lovrijenac.jpg)
+https://images.unsplash.com/photo-1593787349191-9cf14366f6ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+
 ![Teleferico](./dubrovnik-teleferico.jpg)
+https://images.unsplash.com/photo-1592156212531-02c0e64df273?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+
 ![Playa Benje](./dubrovnik-playa-benje.jpg)
+https://images.unsplash.com/photo-1505063080835-c595bc339ddf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1952&q=80
+
 
 istanbul Turkey 
 ![Mezquita Azul](./estambul-mezquita-azul.jpg)
+https://images.unsplash.com/photo-1593544648982-cf4bbfb8fc38?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
 ![Iglesia Santa Sofía](./estambul-iglesia-santa-sofia.jpg)
+https://images.unsplash.com/photo-1602137968838-8e64b4b45a72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
 ![Palacio Topkapi](./estambul-palacio-topkapi.jpg)
+https://images.unsplash.com/photo-1531164659940-21e9011115f7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80
 ![Museos Arqueológicos de Estambul](./estambul-museos-arqueologicos.jpg)
+https://images.unsplash.com/photo-1552481224-745fd99a6ffd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80
+
 ![Museo de Arte Turca e Islámica](./Estambul-museo-de-arte.jpg)
+https://images.unsplash.com/photo-1585774276362-b4747a0c5481?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
 ![Cisterna Basílica](./estambul-cisterna-basilica.jpg)
+https://images.unsplash.com/photo-1560148701-07f4d176c1c7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80
 ![El Gran Bazar](./estambul-el-gran-bazar.jpg)
+https://images.unsplash.com/photo-1508249705412-6e8ae45e7529?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80
 ![Mercado de Especias](./estambul-mercado-de-especias.jpg)
+https://images.unsplash.com/photo-1516710505574-0245114a1093?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80
 ![Calle Istiklal](./estambul-calle-istiklal.jpg)
+https://images.unsplash.com/photo-1539786565222-3eb87ebc216c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+
+
 
 fort lauderdale
 
