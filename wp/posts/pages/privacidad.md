@@ -1,7 +1,13 @@
 ---
-title: Política de privacidad de datos
-comments: false
-standalone: true
+ID: urn:uuid:bb7a46b6-b8e9-4e6e-a9cb-6805476c5f45
+Title: Política de privacidad de datos
+Slug: privacidad
+Author: xvuelos
+WP-Type: page
+Date: 2021-01-06 00:00 PST
+Updated: 2021-01-06 00:00 PST
+Draft: false
+Status: publish
 ---
 
 La presente Política de Privacidad de Datos, tiene por objeto poner en conocimiento de los interesados los alcances de la protección integral de los datos personales asentados en los archivos; registros; bancos o bases de datos; u otros medios técnicos de tratamiento de datos implementados por XVUELOS (en adelante XVUELOS), asegurando el respeto al derecho a la intimidad de las personas, así como también al libre acceso a la información que sobre las mismas pueda eventualmente registrarse.

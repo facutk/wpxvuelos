@@ -1,8 +1,13 @@
 ---
-title: Quienes Somos
-subtitle: Las mejores ofertas en vuelos
-comments: false
-standalone: true
+ID: urn:uuid:c00149be-41bd-476e-90b7-f046c3bc515a
+Title: Quienes Somos
+Slug: quienes-somos
+Author: xvuelos
+WP-Type: page
+Date: 2021-01-06 00:00 PST
+Updated: 2021-01-06 00:00 PST
+Draft: false
+Status: publish
 ---
 
 En Xvuelos ayudamos a cumplir tus deseos de viajar, comparando los precios de cientos de aerolíneas y agencias en un mismo lugar para que encuentres la mejor opción de forma fácil y rápida.

@@ -70,5 +70,6 @@ Outputs
 ### Markdown to drafts
 
 ```sh
+$ wp --path="${pwd}" --debug=postmark postmark sync posts/washington.md
 $ wp postmark tree posts/ --path="${pwd}" --debug=postmark
 ```

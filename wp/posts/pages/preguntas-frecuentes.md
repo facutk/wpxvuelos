@@ -1,7 +1,13 @@
 ---
-title: Preguntas Frecuentes
-comments: false
-standalone: true
+ID: urn:uuid:63ab7387-5dbe-4dd0-b5d2-c7cd11d8af42
+Title: Preguntas Frecuentes
+Slug: preguntas-frecuentes
+Author: xvuelos
+WP-Type: page
+Date: 2021-01-06 00:00 PST
+Updated: 2021-01-06 00:00 PST
+Draft: false
+Status: publish
 ---
 
 ### ¿Qué es Xvuelos?

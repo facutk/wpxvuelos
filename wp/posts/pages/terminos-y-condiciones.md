@@ -1,7 +1,13 @@
 ---
-title: Términos y condiciones
-comments: false
-standalone: true
+ID: urn:uuid:e10883d8-2577-43c5-958b-28fa2f3985c9
+Title: Términos y condiciones
+Slug: terminos-y-condiciones
+Author: xvuelos
+WP-Type: page
+Date: 2021-01-06 00:00 PST
+Updated: 2021-01-06 00:00 PST
+Draft: false
+Status: publish
 ---
 
 ## 1. Sobre este documento

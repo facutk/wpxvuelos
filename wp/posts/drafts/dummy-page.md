@@ -1,8 +1,13 @@
 ---
-title: Acerca
-subtitle: Las mejores ofertas en vuelos
-comments: false
-standalone: true
+ID: change-me-please
+Title: Dummy Page
+Slug: dummy-page
+Author: xvuelos
+WP-Type: page
+Date: 2021-01-06 00:00 PST
+Updated: 2021-01-06 00:00 PST
+Draft: false
+Status: publish
 ---
 
 En cada post encontrarás info útil
