@@ -1,6 +1,5 @@
 <?php
 add_action('init', function(){
-  setlocale(LC_ALL,"es_ES"); // strftime
   add_rewrite_rule( 
     '^vuelos/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?', 
     //!IMPORTANT! THIS MUST BE IN SINGLE QUOTES!:

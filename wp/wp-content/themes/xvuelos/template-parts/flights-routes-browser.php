@@ -20,6 +20,24 @@
 
   $country_images_by_id = array_column(xvuelos_country_images_by_id(), NULL, 'Id');
 
+  // TODO: this should be solved with setlocale(LC_ALL,"es_ES"); and strftime("%B", strtotime($outboundDate))
+  // However, heroku only has English locales
+  // Thus, this hack
+  $MONTH_NAMES = [
+    '01' => 'Enero',
+    '02' => 'Febrero',
+    '03' => 'Marzo',
+    '04' => 'Abril',
+    '05' => 'Mayo',
+    '06' => 'Junio',
+    '07' => 'Julio',
+    '08' => 'Agosto',
+    '09' => 'Septiembre',
+    '10' => 'Octubre',
+    '11' => 'Noviembre',
+    '12' => 'Diciembre',
+  ];
+
   function getDaysCount($departure, $arrival) {
     return intval(date_diff(
       date_create(substr($departure, 0, 10)),
@@ -88,7 +106,8 @@
             </h6>
 
             <small class="text-dark">
-              <? echo ucfirst(strftime("%B", strtotime($outboundDate))); ?>. <? echo $nightsCount; ?> noches
+              
+              <? echo $MONTH_NAMES[date_create($outboundDate)->format("m")]; ?> | <? echo $nightsCount; ?> noches
             </small>
 
             <div class="text-right font-weight-bold color-accent text-nowrap">
