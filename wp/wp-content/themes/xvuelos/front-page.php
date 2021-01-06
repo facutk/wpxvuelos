@@ -13,6 +13,8 @@
   }
 	?>
 
+<? dynamic_sidebar( 'front-page-middle' ); ?>
+
 <?php get_template_part( 'template-parts/flights-routes-browser' ); ?>
 </div>
 

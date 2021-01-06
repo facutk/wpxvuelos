@@ -123,3 +123,32 @@ input[type="radio"] + label {
     column-count: 2;
   } 
 }
+
+.latests-posts {
+  flex-wrap: nowrap !important;
+  overflow: auto;
+  white-space: nowrap;
+  margin: 2em 0 !important;
+  padding: 2em 5px !important;
+  scroll-snap-type: x mandatory;
+}
+
+.latests-posts li {
+  scroll-snap-align: start;
+  display: inline-block;
+  border-top: 0 !important;
+  margin: 0 0.5em !important;
+  background: #fff;
+  padding: 1em;
+  border: 1px solid rgba(0,0,0,.125) !important;
+  border-radius: .25rem;
+}
+
+.latests-posts li:hover {
+  box-shadow: 0 12px 20px rgba(68,68,68,0.2);
+  transition: box-shadow .2s ease-out;
+}
+
+.latests-posts li:first-of-type {
+  margin-left: 0 !important;
+}

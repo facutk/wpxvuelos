@@ -22,6 +22,32 @@ add_action('init', function(){
   init_userinfo();
 });
 
+function dcms_agregar_nueva_zona_widgets() {
+
+register_sidebar( [
+'name'          => 'Nueva Zona Widget',
+'id'            => 'id-nueva-zona',
+'description'   => 'Descripción de la nueva Zona de Widgets',
+'before_widget' => '<section id="%1$s" class="widget %2$s">',
+'after_widget'  => '</section>',
+'before_title'  => '<h2 class="widget-title">',
+'after_title'   => '</h2>',
+]);
+	
+}
+
+add_action( 'widgets_init', function() {
+  register_sidebar( [
+    'name'          => 'Front Page Middle',
+    'id'            => 'front-page-middle',
+    'description'   => 'Front Page Middle',
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+    ]);
+});
+
 function init_userinfo() {
   $userinfo_changed = false;
   
