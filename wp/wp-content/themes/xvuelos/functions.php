@@ -346,8 +346,24 @@ function xvuelos_rest_poll(WP_REST_Request $request) {
   $stops = ""; // no stops defined
   $includeCarriers = ""; // no defined carriers filters
   $results = xvuelos_poll($sid, $pageIndex, $pageSize, $sortby, $stops, $includeCarriers);
+
+  $Agents = $results["Agents"];
+  $totalAgents = sizeof($Agents);
+  $completeAgents = 0;
+  foreach($Agents as $agent) {
+    if ($agent["Status"] == "UpdatesComplete") {
+      $completeAgents += 1;
+    }
+  }
+
+  $complete = 0;
+  if ($totalAgents) {
+    $complete = intval(($completeAgents * 100) / $totalAgents);
+  }
+
   $miniResults = [
-    "Status" => $results["Status"]
+    "Status" => $results["Status"],
+    "complete" => $complete
   ]; // send only whats needed
 
   $response = new WP_REST_Response($miniResults, 200);

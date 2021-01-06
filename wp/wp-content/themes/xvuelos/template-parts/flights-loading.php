@@ -165,6 +165,11 @@
       fetch(url)
         .then(r => r.json())
         .then((response) => {
+          var logProgress = Math.ceil(Math.log(response.complete) * 100 / Math.log(100));
+          console.log(logProgress);
+          var progressBar = document.getElementById("rainbow-progress-bar");
+          progressBar.style.width = '' + logProgress + "%";
+
           if (response.Status === "UpdatesComplete") {
             var redirectUrl = window.location.href.split('?')[0] + "?sid=" + sid;
             window.location.href = redirectUrl;

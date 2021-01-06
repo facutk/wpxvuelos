@@ -41,3 +41,15 @@ $ git push origin master
 
 Merges to `master` branch triggers a deploy in *heroku*.
 https://dashboard.heroku.com/apps/wpxvuelos
+
+## Writing Content
+
+### Requirements
+- `wp cli`
+- `postmark`
+
+Instalation
+```sh
+brew install wp-cli
+php -d memory_limit=512M "$(which wp)" package install dirtsimple/postmark
+```
