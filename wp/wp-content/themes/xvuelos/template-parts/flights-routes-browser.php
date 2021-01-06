@@ -70,7 +70,7 @@
 
       $url = "/vuelos/$origin/$destination/$outboundDate/$inboundDate";
 
-      if ($nightsCount < 30) {
+      if ($nightsCount >0 && $nightsCount < 30) {
   ?>
     <a class="masonry-item" href="<? echo $url; ?>" target="_blank">
       <div class="card hover-shadow">
