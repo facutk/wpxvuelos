@@ -84,7 +84,9 @@
       if ($aspectRatio == 0) {
         $aspectRatio = 1;
       }
-      $imageStyle = "min-height:" . intval(200 / $aspectRatio) . "px";
+
+      $imageHeight = intval(150 / $aspectRatio);
+      $imageStyle = "min-height:" . $imageHeight . "px";
 
       $url = "/vuelos/$origin/$destination/$outboundDate/$inboundDate";
 
@@ -96,6 +98,7 @@
           class="card-img-top"
           src="<? echo $imageUrl . '?w=200'; ?>"
           alt="<? echo $destinationName; ?>"
+          height="<? echo $imageHeight ?>"
           <? echo "style" . "=" . "'" . $imageStyle . "'"; ?>
         />
         
